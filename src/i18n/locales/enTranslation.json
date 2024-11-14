@@ -1,0 +1,30 @@
+{
+    "common": {
+      "buttons": {
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete"
+      },
+      "navigation": {
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact"
+      }
+    },
+    "home": {
+      "title": "Welcome to our website",
+      "description": "This is a multilingual website",
+      "greeting": "Hello, {{name}}!"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn more about our company"
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email",
+      "minLength": "Must be at least {{count}} characters"
+    }
+  }
+  

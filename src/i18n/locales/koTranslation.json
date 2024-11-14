@@ -1,0 +1,30 @@
+{
+    "common": {
+      "buttons": {
+        "submit": "제출",
+        "cancel": "취소",
+        "save": "저장",
+        "delete": "삭제"
+      },
+      "navigation": {
+        "home": "홈",
+        "about": "소개",
+        "contact": "연락처"
+      }
+    },
+    "home": {
+      "title": "웹사이트에 오신 것을 환영합니다",
+      "description": "이것은 다국어 웹사이트입니다",
+      "greeting": "안녕하세요, {{name}}님!"
+    },
+    "about": {
+      "title": "회사 소개",
+      "description": "우리 회사에 대해 자세히 알아보세요"
+    },
+    "validation": {
+      "required": "필수 입력 항목입니다",
+      "email": "올바른 이메일을 입력해주세요",
+      "minLength": "최소 {{count}}자 이상이어야 합니다"
+    }
+  }
+  
