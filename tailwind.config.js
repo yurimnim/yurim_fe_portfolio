@@ -17,6 +17,9 @@ export default {
           900: '#0c4a6e',
         },
       },
+      fontFamily: {
+        sans: ['Pretendard', 'Helvetica', 'Arial', 'sans-serif'],
+      },
     },
   },
   plugins: [],
