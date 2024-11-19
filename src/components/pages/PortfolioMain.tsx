@@ -1,7 +1,7 @@
 
 const PortfolioMain = () => {
   return (
-    <div>
+    <div className="relative w-screen h-screen">
       
     </div>
   )

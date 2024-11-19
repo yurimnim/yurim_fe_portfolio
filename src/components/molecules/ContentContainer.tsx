@@ -1,8 +1,28 @@
-import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
 
-const ContentContainer = () => {
+interface ContentProps {
+  imagePaths: string[];
+  title: string;
+  contentText: string; 
+}
+
+const ContentContainer = ({
+  imagePaths, titie, contentText
+}:ContentProps) => {
   return (
-    <div>ContentContainer</div>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+      >
+    {imagePaths.map((path, index) => (
+      <SwiperSlide key={index}>
+        <img src={path} alt={`Slide ${index}`} />
+      </SwiperSlide>
+    ))}
+  </Swiper>
   )
 }
 
