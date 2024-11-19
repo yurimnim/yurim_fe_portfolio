@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import PortfolioMain from "./components/pages/PortfolioMain";
+import PortfolioMain from "@/components/pages/PortfolioMain";
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'

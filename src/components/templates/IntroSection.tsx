@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ProjectTemplate = () => {
+const IntroSection = () => {
   return (
     <div>ProjectTemplate</div>
   )
 }
 
-export default ProjectTemplate
+export default IntroSection
