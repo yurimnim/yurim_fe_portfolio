@@ -6,7 +6,9 @@ const IntroSection = () => {
 
   return (
     <div className="relative w-screen h-screen flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-semibold mb-4">
+  
+  <div className="max-w-[90vw] mx-auto">
+      <h1 className="text-4xl lg:text-4xl md:text-3xl sm:text-2xl font-semibold mb-4">
         <TypewriterText
           text={t('main.title')}
           speed={200}
@@ -23,6 +25,7 @@ const IntroSection = () => {
           className="text-gray-700 dark:text-gray-300"
         />
       </p>
+      </div>
     </div>
   );
 };
