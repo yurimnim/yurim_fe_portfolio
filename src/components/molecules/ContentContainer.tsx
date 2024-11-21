@@ -7,22 +7,30 @@ interface ContentProps {
   contentText: string; 
 }
 
-const ContentContainer = ({
-  imagePaths, titie, contentText
-}:ContentProps) => {
-  return (
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-      >
-    {imagePaths.map((path, index) => (
-      <SwiperSlide key={index}>
-        <img src={path} alt={`Slide ${index}`} />
-      </SwiperSlide>
-    ))}
-  </Swiper>
+  const ContentContainer = ({
+    imagePaths, title, contentText
+  }:ContentProps) => {
+    return (
+      <div>
+        <div>
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+        >
+      {imagePaths.map((path, index) => (
+        <SwiperSlide key={index}>
+          <img src={path} alt={`Slide ${index}`} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+    </div>
+      <div>
+        <h2>{title}</h2>
+        <p>{contentText}</p>
+      </div>
+    </div>
   )
 }
 

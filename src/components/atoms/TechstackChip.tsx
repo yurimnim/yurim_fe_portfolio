@@ -1,12 +1,11 @@
-import React from 'react'
 
-interface TechstackChipProps {
+interface TechStackChipProps {
     size: string;
     color: string;
     text: string;
 }
 
-const TechstackChip: React.FC<TechstackChipProps> = ({ size, color, text }) => {
+const TechStackChip = ({ size, color, text } :TechStackChipProps) => {
     return (
         <div className={`text-${size} bg-${color} py-1 px-3 rounded-full inline-block`}>
             {text}
@@ -14,4 +13,4 @@ const TechstackChip: React.FC<TechstackChipProps> = ({ size, color, text }) => {
     )
 }
 
-export default TechstackChip
+export default TechStackChip
