@@ -1,4 +1,5 @@
 import IntroSection from '@/components/templates/IntroSection';
+import ProjectSection from '@/components/templates/ProjectSection';
 import {motion, useScroll } from 'framer-motion';
 
 const PortfolioMain = () => {
@@ -17,7 +18,8 @@ const PortfolioMain = () => {
           }}
           />
         <IntroSection />
-      
+        <ProjectSection />
+
     </div>
   )
 }

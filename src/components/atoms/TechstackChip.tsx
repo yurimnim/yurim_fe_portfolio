@@ -1,5 +1,5 @@
 
-interface TechStackChipProps {
+type TechStackChipProps ={
     size: string;
     color: string;
     text: string;

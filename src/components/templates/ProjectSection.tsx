@@ -1,8 +1,10 @@
-import React from 'react'
+import TitleText from '@/components/atoms/TitleText';
 
 const ProjectSection = () => {
   return (
-    <div>ProjectSection</div>
+    <div>
+        <TitleText titleText='Projects' />
+    </div>
   )
 }
 
