@@ -1,16 +1,100 @@
 
-type TechStackChipProps ={
-    size: string;
-    color: string;
-    text: string;
+type TechStackChipProps = {
+  techStack: string;
 }
 
-const TechStackChip = ({ size, color, text } :TechStackChipProps) => {
-    return (
-        <div className={`text-${size} bg-${color} py-1 px-3 rounded-full inline-block`}>
-            {text}
-        </div>
-    )
+type ColorScheme = {
+  background: string;
+  text: string;
 }
 
-export default TechStackChip
+const TECH_COLORS: Record<string, ColorScheme> = {
+
+  "React": {
+    background: "bg-blue-300",
+    text: "text-blue-900"
+  },
+  "Next.js": {
+    background: "bg-gray-300",
+    text: "text-gray-900"
+  },
+  "TypeScript": {
+    background: "bg-blue-500",
+    text: "text-white"
+  },
+  "Tailwind CSS": {
+    background: "bg-blue-100",
+    text: "text-blue-800"
+  },
+  "JavaScript": {
+    background: "bg-yellow-100",
+    text: "text-yellow-900"
+  },
+  "Emotion": {
+    background: "bg-pink-100",
+    text: "text-pink-900"
+  },
+  "Styled Components": {
+    background: "bg-purple-100",
+    text: "text-purple-900"
+  },
+  "Redux": {
+    background: "bg-blue-100",
+    text: "text-blue-900"
+  },
+  "React Query": {
+    background: "bg-pink-200",
+    text: "text-blue-900"
+  },
+  
+  // Backend
+  "JAVA": {
+    background: "bg-red-100",
+    text: "text-red-900"
+  },
+  "Springboot": {
+    background: "bg-green-100",
+    text: "text-green-900"
+  },
+  "RDBMS": {
+    background: "bg-yellow-100",
+    text: "text-yellow-900"
+  }
+} as const;
+
+const DEFAULT_COLORS: ColorScheme = {
+  background: "bg-gray-300",
+  text: "text-gray-900"
+};
+
+const getTechColors = (tech: string): ColorScheme => {
+  return TECH_COLORS[tech] || DEFAULT_COLORS;
+};
+
+const TechStackChip = ({ techStack }: TechStackChipProps) => {
+  const colors = getTechColors(techStack);
+  
+  return (
+    <div className={`
+      text-lg
+      lg:text-xl
+      py-1 
+      px-3 
+      rounded-full 
+      inline-block 
+      font-mono 
+      mr-3 
+      mb-2
+      transition-colors
+      duration-200
+      hover:opacity-90
+      ${colors.background}
+      ${colors.text}
+    `}>
+      {techStack}
+    </div>
+  );
+};
+
+export { TECH_COLORS, getTechColors };
+export default TechStackChip;

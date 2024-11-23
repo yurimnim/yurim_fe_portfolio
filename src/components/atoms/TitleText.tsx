@@ -27,7 +27,7 @@ const TitleText = ({ titleText }: TitleTextProps) => {
   return (
     <div className="relative inline-block">
       <div 
-        className="absolute bg-lime-500 dark:bg-white"
+        className="absolute bg-lime-400 dark:bg-white"
         style={{
           top: '50%',
           left: '50%',
@@ -39,7 +39,7 @@ const TitleText = ({ titleText }: TitleTextProps) => {
       
       <h2 
         ref={textRef}
-        className="relative text-xl md:text-2xl lg:text-6xl font-mono font-extralight tracking-normal text-slate-100"
+        className="relative text-xl md:text-2xl lg:text-5xl font-mono tracking-noraml text-slate-900 dark:text-lime-500"
       >
         {titleText}
       </h2>

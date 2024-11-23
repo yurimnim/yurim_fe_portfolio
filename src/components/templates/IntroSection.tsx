@@ -13,8 +13,8 @@ const IntroSection = () => {
   ];
 
   return (
-    <div className="relative w-screen h-screen flex flex-col items-center justify-center">
-      <div className="max-w-[90vw] mx-auto max-h-[10] mt-3">
+    <div className="relative w-screen h-screen flex flex-col items-center">
+      <div className="max-w-[100vw] max-h-[50vh] mt-32 md:mt-40 lg:mt-52">
         <h1 className="tracking-tighte text-6xl font-sans sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-gray-900 dark:text-orange-100 mb-2">
           <TypewriterText
             segments={titleSegments}
