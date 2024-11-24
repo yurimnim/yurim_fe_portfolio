@@ -18,35 +18,9 @@
       "title": "기술스택",
       "frontend": "프론트엔드",
       "backend": "백엔드",
-      "etc": "기타",
-      "skillset": {
-        "frontend": [
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "React",
-          "Redux",
-          "TypeScript",
-          "Styled-components",
-          "Emotion",
-          "Tailwind CSS", 
-          "Bootstrap",
-          "React Query",
-          "Zustand"          
-        ],
-        "backend": [
-          "JAVA",
-          "Springboot",
-           "RDBMS"
-        ],
-        "DEVOPS": [
-          "GitHub",
-          "Docker",
-          "AWS S3"
-        ]
-      }
-    },
-    
+      "etc": "기타"
+      },
+
 
     "projects": [
     {

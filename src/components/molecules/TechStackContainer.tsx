@@ -45,7 +45,7 @@ const TechStackContainer = () => {
             </div>
 
             <div className="flex flex-col justify-start">
-            <h2 className="text-2xl sm:text-lg md:text-xl lg:text-2xl mt-3 md:mt-3 lg:mt-8 font-sans font-normal text-gray-800 dark:text-orange-100 text-start tracking-tight ">
+            <h2 className="text-lg md:text-xl lg:text-2xl mt-3 md:mt-3 lg:mt-8 font-sans font-normal text-gray-800 dark:text-orange-100 text-start tracking-tight ">
                     {t('skills.backend')}
              </h2>
                 </div>

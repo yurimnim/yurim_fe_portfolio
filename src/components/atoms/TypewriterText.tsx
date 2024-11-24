@@ -107,7 +107,7 @@ const TypewriterText = ({
     ))}
     {showCursor && (
       <span 
-        className={`inline-block w-5 h-[8px] ml-1 mt-4 animate-[blink_1s_infinite] bg-lime-500 ${cursorClassName}`}
+        className={`inline-block w-5 h-[8px] ml-1 mt-4 animate-[blink_1s_infinite] bg-lime-400 ${cursorClassName}`}
         aria-hidden="true"
       />
     )}
