@@ -2,7 +2,6 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import IntroSection from '@/components/templates/IntroSection';
 import HelloSection from '@/components/templates/HelloSection';
-import SkillsetSection from '@/components/templates/SkillsetSection';
 import HeaderMenu from '@/components/molecules/HeaderMenu';
 
 const PortfolioMain = () => {

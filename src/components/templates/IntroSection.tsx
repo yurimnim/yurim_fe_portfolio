@@ -16,7 +16,6 @@ const IntroSection = () => {
     <div className=" relative 
       w-screen h-screen
       flex items-center justify-center
- 
       overflow-hidden">
       <div className="max-w-[100vw] max-h-fit m-auto">
         <h1 className="tracking-tighte text-6xl font-sans sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-gray-900 dark:text-orange-100 mb-2">

@@ -73,7 +73,7 @@ const TECH_COLORS: Record<string, ColorScheme> = {
 } as const;
 
 const DEFAULT_COLORS: ColorScheme = {
-  background: "bg-gray-300",
+  background: "bg-blue-200",
   text: "text-gray-900"
 };
 
@@ -81,30 +81,32 @@ const getTechColors = (tech: string): ColorScheme => {
   return TECH_COLORS[tech] || DEFAULT_COLORS;
 };
 
+
 const TechStackChip = ({ techStack }: TechStackChipProps) => {
   const colors = getTechColors(techStack);
   
   return (
     <div className={`
-      text-lg
-      lg:text-xl
+      text-[15px]
       py-1 
       px-3 
       rounded-full 
       inline-block 
-      font-mono 
+      font-mono
       mr-3 
       mb-2
       transition-colors
       duration-200
       hover:opacity-90
-      ${colors.background}
-      ${colors.text}
+      border-2
+      border-lime-400
+      text-gray-700
+      tracking-wide
     `}>
       {techStack}
     </div>
   );
 };
 
-export { TECH_COLORS, getTechColors };
+//export { TECH_COLORS, getTechColors };
 export default TechStackChip;

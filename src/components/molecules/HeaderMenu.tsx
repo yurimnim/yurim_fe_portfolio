@@ -10,7 +10,6 @@ const HeaderMenu = () => {
   const menuItems: MenuItem[] = [
     { title: 'Home', linkTo: '' },
     { title: 'Hello', linkTo: '' },
-    { title: 'Skills', linkTo: '' },
     { title: 'Projects', linkTo: '' },
     { title: 'Contact', linkTo: '' },
   ]
@@ -24,7 +23,7 @@ const HeaderMenu = () => {
             className='
             text-lg
             font-mono
-            text-gray-700
+            text-gray-800
             mr-1
             md:mr-2
             lg:mr-3
