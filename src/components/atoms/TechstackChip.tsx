@@ -59,7 +59,17 @@ const TECH_COLORS: Record<string, ColorScheme> = {
   "RDBMS": {
     background: "bg-yellow-100",
     text: "text-yellow-900"
-  }
+  }, 
+
+  // Other
+    "Docker": {
+        background: "bg-blue-200",
+        text: "text-blue-900"
+    },
+    "Git": {
+        background: "bg-red-200",
+        text: "text-red-900"
+    },
 } as const;
 
 const DEFAULT_COLORS: ColorScheme = {

@@ -10,7 +10,7 @@ const AboutSection = () => {
          <TitleText titleText='Hello!' />
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col max-h-96">
           <h3 className="text-start text-2xl sm:text-xl md:text-2xl lg:text-3xl mt-3 md:mt-3 lg:mt-8 font-sans font-light text-gray-800 dark:text-orange-100 tracking-tight">
             {t('about.title')} 
           </h3>

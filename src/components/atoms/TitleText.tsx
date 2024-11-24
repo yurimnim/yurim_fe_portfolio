@@ -2,9 +2,11 @@ import { useRef, useEffect, useState } from 'react';
 
 interface TitleTextProps {
   titleText: string;
+  onClick?: () => void;
+  reverse?: boolean;
 }
 
-const TitleText = ({ titleText }: TitleTextProps) => {
+const TitleText = ({ titleText, onClick }: TitleTextProps) => {
   const textRef = useRef<HTMLHeadingElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -35,8 +37,8 @@ const TitleText = ({ titleText }: TitleTextProps) => {
           width: `${dimensions.width + 32}px`,  
           height: `${dimensions.height + 5}px`,
         }}
+        onClick={onClick}
       />
-      
       <h2 
         ref={textRef}
         className="relative text-xl md:text-2xl lg:text-5xl font-mono tracking-noraml text-slate-900 dark:text-lime-500"

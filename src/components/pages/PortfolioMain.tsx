@@ -2,6 +2,7 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import IntroSection from '@/components/templates/IntroSection';
 import AboutSection from '@/components/templates/AboutSection';
 import SkillsetSection from '@/components/templates/SkillsetSection';
+import HeaderMenu from '@/components/molecules/HeaderMenu';
 
 const PortfolioMain = () => {
   const { scrollYProgress } = useScroll();
@@ -23,6 +24,7 @@ const PortfolioMain = () => {
       />
 
       <main className="relative w-full min-h-screen">
+        <HeaderMenu />
         <motion.section 
           className="w-full"
           initial={{ opacity: 0, y: 20 }}
