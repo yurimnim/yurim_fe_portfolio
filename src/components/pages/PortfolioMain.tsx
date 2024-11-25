@@ -2,6 +2,7 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import IntroSection from '@/components/templates/IntroSection';
 import HelloSection from '@/components/templates/HelloSection';
+import ProjectSection from '@/components/templates/ProjectSection';
 import HeaderMenu from '@/components/molecules/HeaderMenu';
 import Scrolldown from '../atoms/Scrolldown';
 
@@ -19,13 +20,13 @@ const PortfolioMain = () => {
     const updateScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', updateScroll);
     return () => window.removeEventListener('scroll', updateScroll);
   }, []);
 
   return (
     <>
+    {/* 스크롤 프로그레서 */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-4 bg-gradient-to-r from-lime-500 to-lime-300"
         style={{
@@ -35,6 +36,7 @@ const PortfolioMain = () => {
         }}
       />
       
+      {/* 헤더 */}
       <motion.div 
         className={`
           fixed top-4 left-0 right-0 z-40
@@ -48,34 +50,24 @@ const PortfolioMain = () => {
         <HeaderMenu />
       </motion.div>
 
+
+    {/* 스크롤 프로그레서 */}
       <main className="relative w-full min-h-screen">
-        <motion.section 
-          className="w-full"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="w-full flex justify-center">
           <IntroSection />
-        </motion.section>
+        </div>
 
-        <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2.5, delay: 2 }}
-        className='absolute bottom-0 w-full flex justify-center'
-      >
-      <Scrolldown />
-      </motion.div>
+        <div className='absolute bottom-0 w-full flex justify-center'>
+           <Scrolldown />
+        </div>
 
-        <motion.section 
-          className="w-full flex justify-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="w-full flex justify-center">
           <HelloSection />
-        </motion.section>
+        </div>
+
+        <div className="w-full flex justify-center">
+          <ProjectSection />
+        </div>
       </main>
     </>
   );
