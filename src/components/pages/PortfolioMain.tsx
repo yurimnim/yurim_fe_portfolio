@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import IntroSection from '@/components/templates/IntroSection';
 import HelloSection from '@/components/templates/HelloSection';
 import HeaderMenu from '@/components/molecules/HeaderMenu';
+import Scrolldown from '../atoms/Scrolldown';
 
 const PortfolioMain = () => {
   const { scrollYProgress } = useScroll();
@@ -57,6 +58,15 @@ const PortfolioMain = () => {
           <IntroSection />
         </motion.section>
 
+        <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2.5, delay: 2 }}
+        className='absolute bottom-0 w-full flex justify-center'
+      >
+      <Scrolldown />
+      </motion.div>
+
         <motion.section 
           className="w-full flex justify-center"
           initial={{ opacity: 0 }}
@@ -66,16 +76,6 @@ const PortfolioMain = () => {
         >
           <HelloSection />
         </motion.section>
-
-        {/* <motion.section 
-          className="w-full flex justify-center mt-28 mb-30"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <SkillsetSection />
-        </motion.section> */}
       </main>
     </>
   );

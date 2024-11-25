@@ -4,22 +4,24 @@ import TechStackContainer from '../molecules/TechStackContainer';
 import my_profile from '@/assets/images/my_profile.jpg';
 import { motion } from 'framer-motion';
 
+
 const HelloSection = () => {
   const { t } = useLocale();
 
   return (
-    <div className="relative min-h-screen w-full bg-white px-5 lg:px-8">
-      <div className="max-w-7xl mx-auto py-12">
+    <div className="relative min-h-screen w-full bg-white dark:bg-black px-10">
+      <div className="max-w-7xl mx-auto py-20">
         <motion.div 
           className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+
           {/* Image Container */}
           <motion.div 
             className="w-full lg:w-1/3 flex justify-center lg:justify-start"
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
@@ -27,12 +29,14 @@ const HelloSection = () => {
               src={my_profile} 
               alt="my_profile" 
               className="
-                w-[280px] sm:w-[320px] md:w-[400px] lg:w-[450px] 
+                w-[320px] sm:w-[320px] md:w-[400px] lg:w-[500px] 
                 h-auto rounded-3xl object-cover 
                 shadow-lg shadow-gray-200 dark:shadow-gray-800
                 transition-transform duration-300 
                 hover:scale-[1.02]
                 bottom-0
+                mt-0
+                lg:mt-32
               "
             />
           </motion.div>
@@ -42,15 +46,15 @@ const HelloSection = () => {
             className="w-full lg:w-2/3 flex flex-col gap-8"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4  }}
           >
-            {/* Hello Title */}
+
             <div className="flex justify-center lg:justify-start">
               <TitleText titleText='Hello!' />
             </div>
 
             {/* About Text */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
               <motion.h3 
                 className="
                   text-lg sm:text-xl md:text-2xl lg:text-3xl 
@@ -96,6 +100,8 @@ const HelloSection = () => {
           </motion.div>
         </motion.div>
       </div>
+    
+     
     </div>
   );
 };

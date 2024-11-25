@@ -18,7 +18,16 @@ const IntroSection = () => {
       flex items-center justify-center
       overflow-hidden">
       <div className="max-w-[100vw] max-h-fit m-auto">
-        <h1 className="tracking-tighte text-6xl font-sans sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-gray-900 dark:text-orange-100 mb-2">
+        <h1 className="tracking-tighte text-6xl 
+        font-sans sm:text-7xl 
+        md:text-7xl 
+        lg:text-8xl 
+        xl:text-9xl 
+        break-keep
+        whitespace-nowrap
+        font-semibold
+        text-gray-900
+         dark:text-lime-400 mb-2">
           <TypewriterText
             segments={titleSegments}
             speed={200}

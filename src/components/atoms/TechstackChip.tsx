@@ -100,7 +100,7 @@ const TechStackChip = ({ techStack }: TechStackChipProps) => {
       hover:opacity-90
       border-2
       border-lime-400
-      text-gray-700
+      text-gray-800
       tracking-wide
     `}>
       {techStack}
