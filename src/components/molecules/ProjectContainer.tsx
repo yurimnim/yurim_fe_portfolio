@@ -19,15 +19,17 @@ const ProjectContainer = ({
   description
 }: ProjectProps) => {
   return (
-    <div className="w-full min-h-screen bg-gray-50 flex justify-center items-center">
+  
       <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] 
-          max-w-[1400px] mx-auto 
+          max-w-[1400px] mx-auto  
           p-2 sm:p-4 md:p-6 lg:p-8 
           bg-white 
           shadow-lg rounded-xl
           z-20">
         
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+
+          {/* Swiper */}
           <div className="w-full lg:w-[45%]">
             <Swiper
               modules={[Autoplay, Navigation, Pagination]}
@@ -71,7 +73,7 @@ const ProjectContainer = ({
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 

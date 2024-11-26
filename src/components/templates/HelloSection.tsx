@@ -29,7 +29,7 @@ const HelloSection = () => {
   
 
   return (
-    <div className="relative min-h-screen w-full bg-white dark:bg-black px-11">
+    <div className="relative min-h-screen w-full bg-white dark:bg-black px-11 lg:pb-10">
       <div className="max-w-7xl mx-auto py-20">
         <motion.div
           ref={containerRef}
