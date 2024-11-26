@@ -18,12 +18,26 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 16
+          cache: 'yarn'
+
+      - name: Show environment info
+        run: |
+          node --version
+          yarn --version
+          pwd
+          ls -la
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: |
+          yarn install --frozen-lockfile
+        env:
+          CI: true
 
       - name: Build project
-        run: npm run build
+        run: |
+          yarn build
+        env:
+          CI: true
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
