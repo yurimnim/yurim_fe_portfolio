@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import PortfolioMain from "@/components/pages/PortfolioMain";
+import { useEffect } from 'react';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+
+  useEffect(() => {
+    console.log('App mounted');
+    console.log('Environment:', import.meta.env);
+    console.log('Base URL:', import.meta.env.BASE_URL);
+  }, []);
+
   return (
     <RouterProvider router={router} />
   );
