@@ -1,4 +1,4 @@
-import TechStackChip from "@/components/atoms/StackChip";
+import StackChip from "@/components/atoms/StackChip";
 import { useLocale } from "@/hooks/useLocale";
 
 const TechStackContainer = () => {
@@ -42,7 +42,7 @@ const TechStackContainer = () => {
                 </div>
                 <div className="flex flex-wrap justify-start mt-3">
                     {frontendStack.map((tech, index) => (
-                        <TechStackChip key={index} techStack={tech} />
+                        <StackChip key={index} techStack={tech} />
                     ))}
             </div>
 
@@ -53,7 +53,7 @@ const TechStackContainer = () => {
                 </div>
                 <div className="flex flex-wrap justify-start mt-3">
                     {backendStack.map((tech, index) => (
-                        <TechStackChip key={index} techStack={tech} />
+                        <StackChip key={index} techStack={tech} />
                     ))}
             </div>
 
@@ -64,7 +64,7 @@ const TechStackContainer = () => {
             </div>
                 <div className="flex flex-wrap justify-start mt-3">
                     {otherStack.map((tech, index) => (
-                        <TechStackChip key={index} techStack={tech} />
+                        <StackChip key={index} techStack={tech} />
                     ))}
             </div>
         </div>
