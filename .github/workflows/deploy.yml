@@ -27,21 +27,28 @@ jobs:
           pwd
           ls -la
 
+      - name: Check file structure
+        run: |
+          echo "Checking file structure..."
+          ls -R src/components/
+          echo "Checking TechStackChip.tsx exists..."
+          cat src/components/atoms/TechStackChip.tsx
+
       - name: Remove package-lock.json
         run: rm -f package-lock.json
 
-      - name: Install dependencies
+      - name: Clean install
         run: |
+          rm -rf node_modules
+          rm -rf ~/.cache/yarn
+          yarn cache clean
           yarn install --frozen-lockfile
-        env:
-          CI: true
 
       - name: Type check
         run: yarn tsc --noEmit
 
       - name: Build project
-        run: |
-          yarn build
+        run: yarn build
         env:
           CI: true
 
