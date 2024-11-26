@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import '@/styles/swiperCustom.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -46,7 +47,7 @@ const ProjectContainer = ({
                     <img
                       src={image}
                       alt={`Project image ${index + 1}`}
-                      className="w-auto h-[200px] sm:h-[300px] lg:h-[600px] object-cover"
+                      className="w-auto h-[400px] sm:h-[500px] lg:h-[650px] object-cover"
                     />
                   </div>
                 </SwiperSlide>
