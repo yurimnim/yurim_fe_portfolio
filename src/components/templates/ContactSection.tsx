@@ -3,8 +3,10 @@ import { AtSign, FileUser } from 'lucide-react';
 import TitleText from '@/components/atoms/TitleText';
 import GithubIcon from '@/components/atoms/Icons/GithubIcon';
 import LinkedInIcon from '@/components/atoms/Icons/LinkedIn';
+
 interface ContactItemProps {
-  Icon: React.FC;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Icon: React.FC<any>;
   label: string;
   href?: string;
   onClick?: () => void;

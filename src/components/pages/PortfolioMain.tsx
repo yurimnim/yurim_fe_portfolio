@@ -1,5 +1,5 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, MutableRefObject } from 'react';
 import IntroSection from '@/components/templates/IntroSection';
 import HelloSection from '@/components/templates/HelloSection';
 import ProjectSection from '@/components/templates/ProjectSection';
@@ -18,10 +18,10 @@ const PortfolioMain = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   
   // Create refs for each section
-  const introRef = useRef(null);
-  const helloRef = useRef(null);
-  const projectRef = useRef(null);
-  const contactRef = useRef(null);
+  const introRef = useRef<HTMLDivElement>(null);
+  const helloRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateScroll = () => {
@@ -32,7 +32,7 @@ const PortfolioMain = () => {
   }, []);
 
 
-  const handleScroll = (ref) => {
+  const handleScroll = (ref: MutableRefObject<HTMLDivElement | null>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
