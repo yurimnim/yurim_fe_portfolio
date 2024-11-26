@@ -23,16 +23,22 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      # Verify fonts directory
+      - name: Check fonts directory
+        run: |
+          echo "Checking fonts directory structure..."
+          ls -R public/assets/fonts/
+
       - name: Build project
         run: yarn build
         env:
           CI: true
 
-      # Add a step to debug the build output
-      - name: List build output
+      # Verify build output
+      - name: Check build output
         run: |
-          echo "Contents of dist directory:"
-          ls -la dist/
+          echo "Checking build output..."
+          ls -R dist/
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
@@ -48,26 +54,17 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: production-files
           path: ./dist
 
-      # Add a step to debug the downloaded artifacts
-      - name: List downloaded files
-        run: |
-          echo "Contents of dist directory:"
-          ls -la dist/
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          # Add these options for better debugging
+          cname: ${{ secrets.CNAME }}
+          enable_jekyll: false
           force_orphan: true
-          full_commit_message: "Deploy: ${{ github.sha }}"
