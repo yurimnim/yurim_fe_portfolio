@@ -4,29 +4,29 @@ import '@/styles/swiperCustom.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-interface ProjectProps {
-  imageList: string[];
-  title: string;
-  subtitle: string;
-  description: string;
-}
+import { useLocale } from '@/hooks/useLocale';
+import TechStackChip from '@/components/atoms/TechStackChip';
+import { ProjectContents } from '@/types';
+import { Drill,  LaptopMinimal, Link } from 'lucide-react';
 
 const ProjectContainer = ({
   imageList,
   title,
   subtitle,
-  description
-}: ProjectProps) => {
+  description, 
+  techStack, 
+  url
+}: ProjectContents) => {
+  const { t } = useLocale();
+
   return (
-  
       <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] 
           max-w-[1400px] mx-auto  
           p-2 sm:p-4 md:p-6 lg:p-8 
           bg-white 
           shadow-lg rounded-xl
           z-20">
-        
+  
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
 
           {/* Swiper */}
@@ -57,19 +57,57 @@ const ProjectContainer = ({
             </Swiper>
           </div>
 
-          <div className="w-full lg:w-[55%] space-y-6">
+          <div className="w-full lg:w-[55%] space-y-6 p-10">
             <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-600">
+              <h2 className="text-2xl sm:text-2xl lg:text-3xl font-semibold text-gray-900">
                 {title}
               </h2>
-              <h3 className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
+              <h3 className="text-[19px] sm:text-xl lg:text-2xl text-gray-700 font-normal dark:text-gray-300">
                 {subtitle}
               </h3>
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-lg sm:text-lg lg:text-xl font-light text-slate-600 dark:text-gray-400 leading-snug">
                 {description}
               </p>
             </div>
 
+            <div className="w-full mt-20">
+              <hr className="border-t border-gray-300 dark:border-gray-700 mt-12" />
+            </div>
+
+            <div className="flex flex-col space-y-6">
+              <div className='flex items-center text-emerald-600'>
+                <div className='ml-1'>
+                      <Drill size={25} strokeWidth={1}/>
+                  </div>
+                  <h1 className='text-xl font-sans ml-1 font-semibold text-gray-800'>
+                    {t('contents.technology')}
+                  </h1>
+              </div>
+                <div className="flex flex-wrap gap-0">
+                  {techStack?.map((tech, index) => (
+                    <TechStackChip key={`tech-${index}`} techStack={tech} />
+                  ))}    
+                </div>
+                
+                {url && (
+                  <>
+                      <div className='flex items-center text-emerald-600'>
+                        <div className='ml-1'>
+                            <LaptopMinimal size={25} strokeWidth={1}/>
+                        </div>
+                        <h1 className='text-xl font-sans text-normal ml-2 font-semibold text-gray-800'>
+                          URL
+                        </h1>
+                        <div className='ml-3 text-lime-400 hover:text-black cursor-pointer'>
+                            <Link size={25} strokeWidth={2}
+                              onClick={() => window.open(url[0])}
+                            />
+                        </div>
+                    </div>
+                       
+                    </>
+                )}
+                </div>
           </div>
         </div>
       </div>
