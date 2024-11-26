@@ -2,20 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yurim Portfolio</title>
-    <!-- Preload critical fonts -->
-    <link 
-      rel="preload" 
-      href="/assets/fonts/Pretendard-Regular.woff2" 
-      as="font" 
-      type="font/woff2" 
-      crossorigin
-    />
+    <title>Portfolio</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      console.log('HTML loaded')
+      window.addEventListener('load', () => {
+        console.log('Window loaded')
+        console.log('Root element:', document.getElementById('root'))
+      })
+    </script>
   </body>
 </html>

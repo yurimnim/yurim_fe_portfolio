@@ -4,7 +4,15 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/yurim_fe_portfolio/',
+  base: '/yurim-fe-portfolio/',  
+  server: {
+    port: 3000,
+    open: true, 
+  },
+  preview: {
+    port: 3000,
+    open: true, 
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
@@ -12,22 +20,11 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
+    sourcemap: true,
     rollupOptions: {
-      output: {
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name.endsWith('.woff2')) {
-            return 'assets/fonts/[name][extname]'
-          }
-          return 'assets/[name]-[hash][extname]'
-        }
+      input: {
+        main: path.resolve(__dirname, 'index.html')
       }
-    }
-  },
-
-  server: {
-    headers: {
-      'Content-Type': 'text/javascript'
     }
   }
 })
