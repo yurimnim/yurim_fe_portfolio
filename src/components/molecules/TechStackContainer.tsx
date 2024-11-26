@@ -1,4 +1,4 @@
-import TechStackChip from "@/components/atoms/TechStackChip";
+import TechStackChip from "@/components/atoms/StackChip";
 import { useLocale } from "@/hooks/useLocale";
 
 const TechStackContainer = () => {

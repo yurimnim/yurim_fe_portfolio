@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useLocale } from '@/hooks/useLocale';
-import TechStackChip from '@/components/atoms/TechStackChip';
+import StackChip from '@/components/atoms/StackChip';
 import { ProjectContents } from '@/types';
 import { Drill,  LaptopMinimal, Link } from 'lucide-react';
 
@@ -85,7 +85,7 @@ const ProjectContainer = ({
               </div>
                 <div className="flex flex-wrap gap-0">
                   {techStack?.map((tech, index) => (
-                    <TechStackChip key={`tech-${index}`} techStack={tech} />
+                    <StackChip key={`tech-${index}`} techStack={tech} />
                   ))}    
                 </div>
                 

@@ -4,7 +4,7 @@ type TechStackChipProps = {
 }
 
 
-const TechStackChip = ({ techStack }: TechStackChipProps) => {
+const StackChip = ({ techStack }: TechStackChipProps) => {
   return (
     <div className={`
       text-[15px]
@@ -28,4 +28,4 @@ const TechStackChip = ({ techStack }: TechStackChipProps) => {
   );
 };
 
-export default TechStackChip;
+export default StackChip;
