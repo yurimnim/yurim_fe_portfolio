@@ -26,6 +26,7 @@ const HelloSection = () => {
     triggerOnce: false,
     threshold: 0.1
   });
+  
 
   return (
     <div className="relative min-h-screen w-full bg-white dark:bg-black px-11">

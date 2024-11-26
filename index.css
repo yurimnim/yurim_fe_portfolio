@@ -73,6 +73,12 @@
     width: 100% !important;
   }  
 
+  .swiper-button-prev,
+  .swiper-button-next, 
+  .swiper-pagination-bullet-active {
+  color: lime !important; 
+  }
+
   #root {
     display: flex;
     flex-direction: column;
