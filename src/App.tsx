@@ -1,17 +1,17 @@
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+// import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import PortfolioMain from "@/components/pages/PortfolioMain";
 import { useEffect } from 'react';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Navigate to="/portfolio" replace />
-  },
-  {
-    path: '/portfolio',
-    element: <PortfolioMain />
-  }
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Navigate to="/portfolio" replace />
+//   },
+//   {
+//     path: '/portfolio',
+//     element: <PortfolioMain />
+//   }
+// ]);
 
 function App() {
 
@@ -22,7 +22,9 @@ function App() {
   }, []);
 
   return (
-    <RouterProvider router={router} />
+    <div className="App">
+      <PortfolioMain />
+    </div>
   );
 }
 
