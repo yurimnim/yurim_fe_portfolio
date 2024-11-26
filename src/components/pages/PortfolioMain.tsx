@@ -1,10 +1,11 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import IntroSection from '@/components/templates/IntroSection';
 import HelloSection from '@/components/templates/HelloSection';
 import ProjectSection from '@/components/templates/ProjectSection';
 import HeaderMenu from '@/components/molecules/HeaderMenu';
 import Scrolldown from '../atoms/Scrolldown';
+import ContactSection from '@/components/templates/ContactSection';
 
 const PortfolioMain = () => {
   const { scrollYProgress } = useScroll();
@@ -15,6 +16,12 @@ const PortfolioMain = () => {
   });
 
   const [isScrolled, setIsScrolled] = useState(false);
+  
+  // Create refs for each section
+  const introRef = useRef(null);
+  const helloRef = useRef(null);
+  const projectRef = useRef(null);
+  const contactRef = useRef(null);
 
   useEffect(() => {
     const updateScroll = () => {
@@ -24,9 +31,13 @@ const PortfolioMain = () => {
     return () => window.removeEventListener('scroll', updateScroll);
   }, []);
 
+
+  const handleScroll = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
-    {/* 스크롤 프로그레서 */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-4 bg-gradient-to-r from-lime-500 to-lime-300"
         style={{
@@ -35,9 +46,8 @@ const PortfolioMain = () => {
           zIndex: 50
         }}
       />
-      
-      {/* 헤더 */}
-      <motion.div 
+
+      <motion.div
         className={`
           fixed top-4 left-0 right-0 z-40
           transition-all duration-1000 ease-in-out
@@ -47,26 +57,33 @@ const PortfolioMain = () => {
         animate={{ y: 0 }}
         transition={{ duration: 2.5 }}
       >
-        <HeaderMenu />
+        <HeaderMenu 
+          onHomeClick={() => handleScroll(introRef)}
+          onHelloClick={() => handleScroll(helloRef)}
+          onProjectsClick={() => handleScroll(projectRef)}
+          onContactClick={() => handleScroll(contactRef)}
+        />
       </motion.div>
 
-
-    {/* 스크롤 프로그레서 */}
       <main className="relative w-full min-h-screen">
-        <div className="w-full flex justify-center">
+        <div ref={introRef} className="w-full flex justify-center">
           <IntroSection />
         </div>
 
         <div className='absolute bottom-0 w-full flex justify-center'>
-           <Scrolldown />
+          <Scrolldown />
         </div>
 
-        <div className="w-full flex justify-center">
+        <div ref={helloRef} className="w-full flex justify-center">
           <HelloSection />
         </div>
 
-        <div className="w-full flex justify-center">
+        <div ref={projectRef} className="w-full flex justify-center">
           <ProjectSection />
+        </div>
+
+        <div ref={contactRef} className="w-full flex justify-center">
+          <ContactSection />
         </div>
       </main>
     </>

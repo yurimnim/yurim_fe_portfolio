@@ -1,53 +1,80 @@
-// import LanguageSwitcher from '@/components/atoms/LanguegeSwitcher'
-// import ThemeToggleButton from '@/components/atoms/ThemeToggleButton'
-
-import { ContactRound, Hand, Presentation, RotateCcw } from "lucide-react"
+import { ContactRound, Hand, Presentation, RotateCcw } from "lucide-react";
 
 interface MenuItem {
-  title: string
-  linkTo: string
-  icon: JSX.Element
+  title: string;
+  icon: JSX.Element;
+  onClick: () => void;
 }
 
-const HeaderMenu = () => {
+interface HeaderMenuProps {
+  onHomeClick: () => void;
+  onHelloClick: () => void;
+  onProjectsClick: () => void;
+  onContactClick: () => void;
+}
+
+const HeaderMenu = ({ 
+  onHomeClick, 
+  onHelloClick, 
+  onProjectsClick, 
+  onContactClick 
+}: HeaderMenuProps) => {
   const menuItems: MenuItem[] = [
-    { title: 'Home', linkTo: '', icon: <RotateCcw strokeWidth={1} /> },
-    { title: 'Hello', linkTo: '',icon:<Hand strokeWidth={1} />, },
-    { title: 'Projects', linkTo: '', icon: <Presentation strokeWidth={1} /> },
-    { title: 'Contact', linkTo: '', icon: <ContactRound strokeWidth={1} />},
-  ]
+    { 
+      title: 'Home', 
+      icon: <RotateCcw strokeWidth={1} />,
+      onClick: onHomeClick
+    },
+    { 
+      title: 'Hello', 
+      icon: <Hand strokeWidth={1} />,
+      onClick: onHelloClick
+    },
+    { 
+      title: 'Projects', 
+      icon: <Presentation strokeWidth={1} />,
+      onClick: onProjectsClick
+    },
+    { 
+      title: 'Contact', 
+      icon: <ContactRound strokeWidth={1} />,
+      onClick: onContactClick
+    },
+  ];
 
   return (
-    <header className='flex absolute flex-row min-w-fit top-0 right-3 mr-8  cursor-pointer '>
-        {/* <LanguageSwitcher /> */}
-        {/* <ThemeToggleButton /> */}
-        {menuItems.map((menuItem, index) => (
-            <div className='flex items-center text-emerald-600'>
-                <div className='mr-1 ml-2 lg:ml-5'>
+    <header className="flex absolute flex-row min-w-fit top-0 right-3 mr-8 cursor-pointer">
+      {menuItems.map((menuItem, index) => (
+        <div 
+          key={index}
+          className="flex items-center text-emerald-600"
+          onClick={menuItem.onClick}
+        >
+          <div className="mr-1 ml-2 lg:ml-5">
             {menuItem.icon}
           </div>
-          <h1 key={index} 
-            className='
-            text-lg
-            font-mono
-            text-gray-800
-            tracking-normal 
-          hover:bg-lime-200
-            focus:outline-none
-            focus-visible:ring-2
-            focus-visible:ring-lime-800
-            rounded-sm
-            transition-all
-            duration-100
-            z-10
-          '
-          onClick={() => console.log(menuItem.linkTo)}
-          >{menuItem.title}</h1>
-        
-          </div>
-        ))}
+          <h1
+            className="
+              text-lg
+              font-mono
+              text-gray-800
+              tracking-normal
+              hover:bg-lime-200
+              focus:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-lime-800
+              rounded-sm
+              transition-all
+              duration-100
+              z-10
+            "
+          >
+            {menuItem.title}
+          </h1>
+        </div>
+      ))}
     </header>
-  )
-}
+  );
+};
 
-export default HeaderMenu
+export default HeaderMenu;
