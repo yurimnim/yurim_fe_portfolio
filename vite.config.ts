@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/yurim-fe-portfolio/',  
+  base: '/yurim_fe_portfolio/',  
   server: {
     port: 3000,
     open: true, 
