@@ -31,8 +31,8 @@ jobs:
         run: |
           echo "Checking file structure..."
           ls -R src/components/
-          echo "Checking TechStackChip.tsx exists..."
-          cat src/components/atoms/TechStackChip.tsx
+          echo "Checking StackChip.tsx exists..."
+          cat src/components/atoms/StackChip.tsx
 
       - name: Remove package-lock.json
         run: rm -f package-lock.json
