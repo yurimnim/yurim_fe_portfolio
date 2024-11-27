@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/yurim_fe_portfolio/',  
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
     sourcemap: true,
     assetsDir: 'assets',
     rollupOptions: {
