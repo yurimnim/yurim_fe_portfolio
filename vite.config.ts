@@ -5,25 +5,18 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   base: '/yurim_fe_portfolio/',  
-  server: {
-    port: 3000,
-    open: true, 
-  },
-  preview: {
-    port: 3000,
-    open: true, 
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src')
-    }
-  },
   build: {
     outDir: 'dist',
     sourcemap: true,
+    assetsDir: 'assets',
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html')
+      },
+      output: {
+        assetFileNames: 'assets/[name].[hash][extname]',
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js'
       }
     }
   }
