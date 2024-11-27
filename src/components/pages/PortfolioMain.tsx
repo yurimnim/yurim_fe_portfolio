@@ -17,7 +17,6 @@ const PortfolioMain = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
   
-  // Create refs for each section
   const introRef = useRef<HTMLDivElement>(null);
   const helloRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
@@ -30,7 +29,6 @@ const PortfolioMain = () => {
     window.addEventListener('scroll', updateScroll);
     return () => window.removeEventListener('scroll', updateScroll);
   }, []);
-
 
   const handleScroll = (ref: MutableRefObject<HTMLDivElement | null>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
@@ -65,24 +63,24 @@ const PortfolioMain = () => {
         />
       </motion.div>
 
-      <main className="relative w-full min-h-screen">
-        <div ref={introRef} className="w-full flex justify-center">
+      <main className="relative w-full">
+        <div ref={introRef} className="w-full flex justify-center min-h-screen relative">
           <IntroSection />
+
+          <div className='absolute bottom-5 w-full flex justify-center'>
+            <Scrolldown />
+          </div>
         </div>
 
-        <div className='absolute bottom-0 w-full flex justify-center'>
-          <Scrolldown />
-        </div>
-
-        <div ref={helloRef} className="w-full flex justify-center">
+        <div ref={helloRef} className="w-full flex justify-center min-h-screen">
           <HelloSection />
         </div>
 
-        <div ref={projectRef} className="w-full flex justify-center">
+        <div ref={projectRef} className="w-full flex justify-center min-h-screen">
           <ProjectSection />
         </div>
 
-        <div ref={contactRef} className="w-full flex justify-center">
+        <div ref={contactRef} className="w-full flex justify-center min-h-[100px]">
           <ContactSection />
         </div>
       </main>
