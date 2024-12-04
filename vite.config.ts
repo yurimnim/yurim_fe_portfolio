@@ -9,6 +9,7 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
     assetsDir: 'assets',
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html')

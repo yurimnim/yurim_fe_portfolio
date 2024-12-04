@@ -43,7 +43,7 @@ const HeaderMenu = ({
   ];
 
   return (
-    <header className="flex absolute flex-row min-w-fit top-0 right-3 mr-8 cursor-pointer">
+    <header className="flex absolute flex-row min-w-fit top-0 right-0 mr-8 cursor-pointer">
       {menuItems.map((menuItem, index) => (
         <div 
           key={index}
@@ -55,7 +55,8 @@ const HeaderMenu = ({
           </div>
           <h1
             className="
-              text-lg
+              text-md
+              lg:text-lg
               font-mono
               text-gray-800
               tracking-normal
