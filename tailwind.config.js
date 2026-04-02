@@ -5,22 +5,25 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // or 'media' if you want to respect system settings
+  darkMode: 'class',
   theme: {
     extend: {
-      // You can add custom colors, fonts, etc. here
       colors: {
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          // ... other shades
-          900: '#0c4a6e',
-        },
+        surface: '#1a1a1a',
       },
       fontFamily: {
         sans: ['Pretendard', 'Helvetica', 'Arial', 'sans-serif'],
       },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
+      },
+      animation: {
+        blink: 'blink 1s infinite',
+      },
     },
   },
   plugins: [],
-} 
+}

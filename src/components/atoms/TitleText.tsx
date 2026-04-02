@@ -28,20 +28,20 @@ const TitleText = ({ titleText, onClick }: TitleTextProps) => {
 
   return (
     <div className="relative inline-block">
-      <div 
-        className="absolute bg-lime-300 dark:bg-white"
+      <div
+        className="absolute bg-lime-300 dark:bg-lime-400/20"
         style={{
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: `${dimensions.width + 32}px`,  
+          width: `${dimensions.width + 32}px`,
           height: `${dimensions.height + 5}px`,
         }}
         onClick={onClick}
       />
-      <h2 
+      <h2
         ref={textRef}
-        className="relative text-xl md:text-2xl lg:text-4xl font-mono tracking-noraml text-slate-900 dark:text-lime-500"
+        className="relative text-xl md:text-2xl lg:text-4xl font-mono tracking-normal text-slate-900 dark:text-lime-400"
       >
         {titleText}
       </h2>

@@ -14,9 +14,14 @@ const TechStackContainer = () => {
         'Emotion',
         'Styled Components',
         'Redux',
-        'ESLint',
+        'Redux Toolkit',
+        'RTK Query',
         'React Query',
-        'Zustand'
+        'Zustand',
+        'Framer Motion',
+        '@tanstack/react-virtual',
+        'Vitest',
+        'ESLint',
     ];
 
     const backendStack = [
@@ -32,44 +37,43 @@ const TechStackContainer = () => {
         'Figma',
         'Zeplin',
     ];
-    
+
     return (
-        <div className="flex flex-col justify-start w-full">
-            <div className="flex flex-col justify-start ml-1">
-                <h2 className="text-lg sm:text-lg md:text-xl lg:text-xl mt-1 md:mt-1 lg:mt-3 font-mono text-gray-800 dark:text-orange-100 text-start tracking-normal ">
-                        {t('skills.frontend')}
+        <div className="flex flex-col justify-start w-full gap-4">
+            <div>
+                <h2 className="text-sm font-mono text-gray-500 dark:text-gray-500 tracking-wide mb-3">
+                    {t('skills.frontend')}
                 </h2>
-                </div>
-                <div className="flex flex-wrap justify-start mt-3">
+                <div className="flex flex-wrap">
                     {frontendStack.map((tech, index) => (
                         <StackChip key={index} techStack={tech} />
                     ))}
+                </div>
             </div>
 
-            <div className="flex flex-col justify-start ml-1">
-            <h2 className="text-lg sm:text-lg md:text-xl lg:text-xl mt-3 md:mt-3 lg:mt-5 font-mono text-gray-800 dark:text-orange-100 text-start tracking-normal ">
+            <div>
+                <h2 className="text-sm font-mono text-gray-500 dark:text-gray-500 tracking-wide mb-3">
                     {t('skills.backend')}
-             </h2>
-                </div>
-                <div className="flex flex-wrap justify-start mt-3">
+                </h2>
+                <div className="flex flex-wrap">
                     {backendStack.map((tech, index) => (
                         <StackChip key={index} techStack={tech} />
                     ))}
+                </div>
             </div>
 
-            <div className="flex flex-col justify-start ml-1">
-                    <h2 className="text-lg sm:text-lg md:text-xl lg:text-xl mt-3 md:mt-3 lg:mt-5 font-mono text-gray-800 dark:text-orange-100 text-start tracking-normal ">
-                            {t('skills.etc')}, Collab tools
+            <div>
+                <h2 className="text-sm font-mono text-gray-500 dark:text-gray-500 tracking-wide mb-3">
+                    {t('skills.etc')}
                 </h2>
-            </div>
-                <div className="flex flex-wrap justify-start mt-3">
+                <div className="flex flex-wrap">
                     {otherStack.map((tech, index) => (
                         <StackChip key={index} techStack={tech} />
                     ))}
+                </div>
             </div>
         </div>
-        
-    )
-    }
+    );
+};
 
-export default TechStackContainer
+export default TechStackContainer;

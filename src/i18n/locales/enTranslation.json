@@ -9,10 +9,54 @@
   "main": {
     "title": "Yurim Lee",
     "description": "Frontend Developer"
-  }, 
- "about": {
-   "title": "about me",
-   "description": "blar.."
- }
-
+  },
+  "about": {
+    "title": "Hi! I'm Yurim \u2014 a frontend engineer with 5+ years building products people actually use.",
+    "description": "I care about how things feel \u2014 how fast they load, how smoothly they respond, how reliably they work. For the past year I've been deep in AI product UI: streaming rendering, real-time state, incremental parsing, making complex AI outputs legible to humans. That's the work I want to keep doing."
+  },
+  "skills": {
+    "title": "Tech Stack",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "etc": "DevOps"
+  },
+  "contents": {
+    "technology": "Tech Stack",
+    "info": "Details",
+    "privateRepo": "Private repo"
+  },
+  "contact": {
+    "resume": "Download Resume"
+  },
+  "scroll": {
+    "down": "Scroll down"
+  },
+  "projects": {
+    "cheiron": {
+      "title": "PhynxLab \u2014 Cheiron",
+      "subtitle": "AI-powered research discovery platform for pharmaceutical companies",
+      "description": "Cheiron helps pharmaceutical researchers find, analyze, and synthesize scientific papers at scale using generative AI. I joined when the codebase needed structure and drove several major technical workstreams:\n\n\u2022 Built a custom incremental streaming parser for real-time AI response rendering \u2014 fixing table row flickering, x-scroll loss, and stale remount issues under live data\n\u2022 Implemented sidebar virtualization with @tanstack/react-virtual, significantly reducing render overhead on large result sets\n\u2022 Overhauled the citation system with virtual element positioning and scroll-close behavior, fixing viewer routing regressions from a prior refactor\n\u2022 Led a 4-phase streaming architecture modernization including AbortController-based request cancellation and evaluated tokenized parsing strategies (Incremark) for next-phase incremental rendering fidelity\n\u2022 Refactored a 2,000+ line SearchForm component via hook extraction, improving testability and reducing coupling across the core search flow",
+      "caseStusy": "Cheiron \u2014 case study coming soon"
+    },
+    "healthcare": {
+      "title": "Korea Smart Healthcare Association \u2014 CRO Admin",
+      "subtitle": "Admin dashboard for a metaverse medical training platform",
+      "description": "Developed the frontend for an admin dashboard supporting VR-based metaverse medical training. Built dashboards visualizing access trends, learner progress, course evaluations, and preference statistics. Customized data visualizations using Recharts for an intuitive, polished UI with flexible filtering. Continued iterating on features based on post-launch user feedback."
+    },
+    "education": {
+      "title": "Smart Healthcare Education Portal",
+      "subtitle": "Course creation and management platform for metaverse medical training",
+      "description": "Built an education management platform for creating and managing VR metaverse courses. Implemented the main landing page, course creation, student enrollment, file upload/management, and course info views. Introduced code splitting with React Suspense and skeleton screens to resolve upload delays and UI jank, significantly improving the user experience. Received positive client feedback after launch."
+    },
+    "kongju": {
+      "title": "Kongju National University \u2014 Arts College Metaverse",
+      "subtitle": "Remote web-metaverse lecture and class management service",
+      "description": "Developed a remote web-metaverse lecture platform for Kongju National University's College of Arts. Implemented login, real-time chat, in-class mini-games, and course material management. Connected real-time server communication for live chat and interactive mini-games. Optimized chat rendering with React.memo and useCallback to eliminate unnecessary re-renders and flickering. Collaborated closely with backend developers to implement a ladder game with random assignment and live results."
+    },
+    "itall": {
+      "title": "Itall Sparta Admin",
+      "subtitle": "Admin dashboard for 100+ managed study halls nationwide",
+      "description": "Contributed to an admin platform for managed study halls. Built key features including announcements, CS tools, and student notification systems. Developed a real-time SOS alert system via WebSocket so app notifications reach the admin dashboard instantly. Participated in image list loading optimizations and helped introduce a monorepo structure with atomic design patterns to improve code reusability and maintainability."
+    }
+  }
 }

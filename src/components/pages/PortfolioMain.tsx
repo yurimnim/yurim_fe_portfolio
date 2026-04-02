@@ -16,7 +16,7 @@ const PortfolioMain = () => {
   });
 
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   const introRef = useRef<HTMLDivElement>(null);
   const helloRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
@@ -35,9 +35,9 @@ const PortfolioMain = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-white dark:bg-[#0f0f0f] transition-colors duration-300">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-4 bg-gradient-to-r from-lime-500 to-lime-300"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-lime-500 to-lime-300"
         style={{
           scaleX,
           transformOrigin: '0%',
@@ -47,15 +47,15 @@ const PortfolioMain = () => {
 
       <motion.div
         className={`
-          fixed top-4 left-0 right-0 z-40
-          transition-all duration-1000 ease-in-out
-          ${isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-lg' : 'bg-transparent'}
+          fixed top-1 left-0 right-0 z-40
+          transition-all duration-500 ease-in-out
+          ${isScrolled ? 'bg-white/80 dark:bg-[#0f0f0f]/80 backdrop-blur-sm shadow-sm' : 'bg-transparent'}
         `}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 2.5 }}
       >
-        <HeaderMenu 
+        <HeaderMenu
           onHomeClick={() => handleScroll(introRef)}
           onHelloClick={() => handleScroll(helloRef)}
           onProjectsClick={() => handleScroll(projectRef)}
@@ -64,27 +64,26 @@ const PortfolioMain = () => {
       </motion.div>
 
       <main className="relative w-full">
-        <div ref={introRef} className="w-full flex justify-center min-h-screen relative">
+        <div ref={introRef} id="section-home" className="w-full flex justify-center min-h-screen relative">
           <IntroSection />
-
           <div className='absolute bottom-5 w-full flex justify-center'>
             <Scrolldown />
           </div>
         </div>
 
-        <div ref={helloRef} className="w-full flex justify-center min-h-screen">
+        <div ref={helloRef} id="section-hello" className="w-full flex justify-center min-h-screen">
           <HelloSection />
         </div>
 
-        <div ref={projectRef} className="w-full flex justify-center min-h-screen">
+        <div ref={projectRef} id="section-projects" className="w-full flex justify-center">
           <ProjectSection />
         </div>
 
-        <div ref={contactRef} className="w-full flex justify-center min-h-[100px]">
+        <div ref={contactRef} id="section-contact" className="w-full flex justify-center min-h-[100px]">
           <ContactSection />
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

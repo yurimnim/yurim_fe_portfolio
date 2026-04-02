@@ -13,21 +13,30 @@ const IntroSection = () => {
   ];
 
   return (
-    <div className=" relative 
+    <div className="
+      relative
       w-screen h-screen
       flex items-center justify-center
-      overflow-hidden">
-      <div className="max-w-[100vw] max-h-fit m-auto">
-        <h1 className="tracking-tighte text-6xl 
-        font-sans sm:text-7xl 
-        md:text-7xl 
-        lg:text-8xl 
-        xl:text-9xl 
-        break-keep
-        whitespace-nowrap
-        font-semibold
-        text-gray-900
-         dark:text-lime-400 mb-2">
+      overflow-hidden
+      bg-white dark:bg-[#0f0f0f]
+      transition-colors duration-300
+    ">
+      <div className="max-w-[90vw] max-h-fit m-auto px-4">
+        <h1 className="
+          tracking-tight
+          text-4xl
+          sm:text-5xl
+          md:text-6xl
+          lg:text-7xl
+          xl:text-8xl
+          font-sans
+          break-keep
+          whitespace-nowrap
+          font-semibold
+          text-gray-900 dark:text-gray-100
+          mb-2
+          leading-tight
+        ">
           <TypewriterText
             segments={titleSegments}
             speed={200}
@@ -37,7 +46,14 @@ const IntroSection = () => {
         </h1>
 
         {showDescription && (
-          <p className="text-xl sm:text-xl md:text-2xl lg:text-4xl mt-3 md:mt-3 lg:mt-8 font-mono text-gray-800 dark:text-lime-200 text-center tracking-wider">
+          <p className="
+            text-lg sm:text-xl md:text-2xl lg:text-3xl
+            mt-3 md:mt-4 lg:mt-6
+            font-mono
+            text-gray-600 dark:text-gray-400
+            text-center
+            tracking-wider
+          ">
             <TypewriterText
               segments={[{ text: t('main.description') }]}
               speed={50}

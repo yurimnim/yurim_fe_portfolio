@@ -1,7 +1,11 @@
-import { ContactRound, Hand, Presentation, RotateCcw } from "lucide-react";
+import { ContactRound, Hand, Presentation, RotateCcw, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import LanguageSwitcher from "@/components/atoms/LanguageSwitcher";
+import ThemeToggleButton from "@/components/atoms/ThemeToggleButton";
 
 interface MenuItem {
   title: string;
+  sectionId: string;
   icon: JSX.Element;
   onClick: () => void;
 }
@@ -13,67 +17,151 @@ interface HeaderMenuProps {
   onContactClick: () => void;
 }
 
-const HeaderMenu = ({ 
-  onHomeClick, 
-  onHelloClick, 
-  onProjectsClick, 
-  onContactClick 
+const HeaderMenu = ({
+  onHomeClick,
+  onHelloClick,
+  onProjectsClick,
+  onContactClick
 }: HeaderMenuProps) => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
   const menuItems: MenuItem[] = [
-    { 
-      title: 'Home', 
-      icon: <RotateCcw strokeWidth={1} />,
+    {
+      title: 'Home',
+      sectionId: 'home',
+      icon: <RotateCcw size={16} strokeWidth={1.5} />,
       onClick: onHomeClick
     },
-    { 
-      title: 'Hello', 
-      icon: <Hand strokeWidth={1} />,
+    {
+      title: 'Hello',
+      sectionId: 'hello',
+      icon: <Hand size={16} strokeWidth={1.5} />,
       onClick: onHelloClick
     },
-    { 
-      title: 'Projects', 
-      icon: <Presentation strokeWidth={1} />,
+    {
+      title: 'Projects',
+      sectionId: 'projects',
+      icon: <Presentation size={16} strokeWidth={1.5} />,
       onClick: onProjectsClick
     },
-    { 
-      title: 'Contact', 
-      icon: <ContactRound strokeWidth={1} />,
+    {
+      title: 'Contact',
+      sectionId: 'contact',
+      icon: <ContactRound size={16} strokeWidth={1.5} />,
       onClick: onContactClick
     },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY + 200;
+      const sections = ['contact', 'projects', 'hello', 'home'];
+      for (const id of sections) {
+        const el = document.getElementById(`section-${id}`);
+        if (el && scrollY >= el.offsetTop) {
+          setActiveSection(id);
+          break;
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (item: MenuItem) => {
+    item.onClick();
+    setMobileOpen(false);
+  };
+
   return (
-    <header className="flex absolute flex-row min-w-fit top-0 right-0 mr-8 cursor-pointer">
-      {menuItems.map((menuItem, index) => (
-        <div 
-          key={index}
-          className="flex items-center text-emerald-600"
-          onClick={menuItem.onClick}
-        >
-          <div className="mr-1 ml-2 lg:ml-5">
-            {menuItem.icon}
-          </div>
-          <h1
-            className="
-              text-md
-              lg:text-lg
-              font-mono
-              text-gray-800
+    <header className="flex items-center justify-between w-full px-4 md:px-8 py-3">
+      {/* Logo - left side */}
+      <button
+        onClick={onHomeClick}
+        className="font-mono text-lg text-gray-900 dark:text-lime-400 tracking-tight hover:opacity-70 transition-opacity"
+      >
+        {'< YL />'}
+      </button>
+
+      {/* Desktop nav - right side */}
+      <div className="hidden md:flex items-center gap-1">
+        {menuItems.map((item) => (
+          <button
+            key={item.sectionId}
+            className={`
+              relative flex items-center gap-1.5
+              px-3 py-2
+              font-mono text-sm
               tracking-normal
-              hover:bg-lime-200
-              focus:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-lime-800
-              rounded-sm
-              transition-all
-              duration-100
-              z-10
-            "
+              rounded-md
+              transition-all duration-200
+              min-h-[44px]
+              ${activeSection === item.sectionId
+                ? 'text-gray-900 dark:text-lime-400'
+                : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+              }
+            `}
+            onClick={() => handleNavClick(item)}
           >
-            {menuItem.title}
-          </h1>
+            <span className="text-lime-500 dark:text-lime-400">{item.icon}</span>
+            <span>{item.title}</span>
+            {activeSection === item.sectionId && (
+              <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-lime-400 rounded-full" />
+            )}
+          </button>
+        ))}
+
+        <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-2" />
+        <LanguageSwitcher />
+        <ThemeToggleButton />
+      </div>
+
+      {/* Mobile controls */}
+      <div className="flex md:hidden items-center gap-2">
+        <LanguageSwitcher />
+        <ThemeToggleButton />
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="flex items-center justify-center w-10 h-10 min-h-[44px] min-w-[44px] text-gray-700 dark:text-gray-300"
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* Mobile dropdown */}
+      {mobileOpen && (
+        <div className="
+          absolute top-full left-0 right-0
+          bg-white/95 dark:bg-[#111111]/95 backdrop-blur-sm
+          border-b border-gray-200 dark:border-gray-800
+          shadow-lg
+          md:hidden
+          z-50
+        ">
+          {menuItems.map((item) => (
+            <button
+              key={item.sectionId}
+              className={`
+                flex items-center gap-3 w-full
+                px-6 py-4
+                font-mono text-base
+                transition-colors duration-200
+                min-h-[44px]
+                ${activeSection === item.sectionId
+                  ? 'text-lime-500 dark:text-lime-400 bg-lime-50 dark:bg-lime-400/10'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                }
+              `}
+              onClick={() => handleNavClick(item)}
+            >
+              {item.icon}
+              <span>{item.title}</span>
+            </button>
+          ))}
         </div>
-      ))}
+      )}
     </header>
   );
 };

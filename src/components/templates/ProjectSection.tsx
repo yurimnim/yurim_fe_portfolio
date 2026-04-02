@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import TitleText from '@/components/atoms/TitleText';
 import ProjectContainer from '@/components/molecules/ProjectContainer';
 import { useLocale } from '@/hooks/useLocale';
 import project_a_1 from '@/assets/images/project_a_1.png';
@@ -19,11 +18,19 @@ const ProjectSection = () => {
 
   const projects = useMemo<ProjectContents[]>(() => [
     {
+      title: t('projects.cheiron.title'),
+      subtitle: t('projects.cheiron.subtitle'),
+      description: t('projects.cheiron.description'),
+      placeholderLabel: t('projects.cheiron.caseStusy'),
+      techStack: ['React', 'TypeScript', 'Redux Toolkit', 'RTK Query', 'Framer Motion', 'Tailwind CSS', 'Vitest', '@tanstack/react-virtual'],
+      url: ['https://cheiron.bio'],
+    },
+    {
       title: t('projects.healthcare.title'),
       subtitle: t('projects.healthcare.subtitle'),
       description: t('projects.healthcare.description'),
-      imageList: [project_a_1, project_a_2], 
-      techStack: [ 'TypeScript', 'Next.js', 'MUI', 'Emotion', 'Redux'],
+      imageList: [project_a_1, project_a_2],
+      techStack: ['TypeScript', 'Next.js', 'MUI', 'Emotion', 'Redux'],
       url: ['http://222.122.186.31/admin']
     },
     {
@@ -31,32 +38,32 @@ const ProjectSection = () => {
       subtitle: t('projects.education.subtitle'),
       description: t('projects.education.description'),
       imageList: [project_b_1, project_b_2, project_b_3],
-      techStack: [ 'TypeScript', 'Next.js', 'MUI', 'Emotion', 'Redux'],
+      techStack: ['TypeScript', 'Next.js', 'MUI', 'Emotion', 'Redux'],
       url: ['https://healthcare.drmeta.kr']
     },
     {
       title: t('projects.kongju.title'),
       subtitle: t('projects.kongju.subtitle'),
       description: t('projects.kongju.description'),
-      imageList: [project_c_1, project_c_2], 
-      techStack: [ 'TypeScript', 'React', 'MUI', 'Styled-Components', 'Redux', 'Phaser'],
+      imageList: [project_c_1, project_c_2],
+      techStack: ['TypeScript', 'React', 'MUI', 'Styled-Components', 'Redux', 'Phaser'],
       url: ['http://knu.220.90.208.8.nip.io:30029/']
     },
     {
       title: t('projects.itall.title'),
       subtitle: t('projects.itall.subtitle'),
       description: t('projects.itall.description'),
-      imageList: [project_d_1, project_d_2], 
-      techStack: [ 'TypeScript', 'React', 'Tailwind CSS', 'React-Query', 'Zustand']
+      imageList: [project_d_1, project_d_2],
+      techStack: ['TypeScript', 'React', 'Tailwind CSS', 'React-Query', 'Zustand']
     }
-  ], [t]); 
+  ], [t]);
 
   const ProjectContainerMemo = React.memo(ProjectContainer);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
@@ -66,29 +73,28 @@ const ProjectSection = () => {
   };
 
   return (
-    <div className="relative w-screen h-auto flex flex-col bg-slate-100 pb-16 lg:pb-28">
-      <div className="w-full flex justify-center my-12 lg:my-16">
-        <TitleText titleText='Projects' />
+    <div className="relative w-screen h-auto flex flex-col bg-slate-50 dark:bg-[#111111] pb-16 lg:pb-28 transition-colors duration-300">
+      <div className="w-full flex justify-center my-12 lg:my-20">
+        <span className="font-mono text-sm text-gray-400 dark:text-gray-500 tracking-wider">{'// projects'}</span>
       </div>
-      
-      <div className="w-full flex flex-col justify-center gap-10">
+
+      <div className="w-full flex flex-col justify-center gap-12 lg:gap-16">
         {projects.map((project, index) => (
           <motion.div
             key={`project-${index}`}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ 
-              once: true, 
+            viewport={{
+              once: true,
               amount: 0.2,
               margin: "-100px"
             }}
           >
             <ProjectContainerMemo
-              key={`project-${index}`}
               {...project}
             />
-           </motion.div>
+          </motion.div>
         ))}
       </div>
     </div>
