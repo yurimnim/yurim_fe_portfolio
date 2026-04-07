@@ -4,7 +4,6 @@ import IntroSection from '@/components/templates/IntroSection';
 import HelloSection from '@/components/templates/HelloSection';
 import ProjectSection from '@/components/templates/ProjectSection';
 import HeaderMenu from '@/components/molecules/HeaderMenu';
-import Scrolldown from '../atoms/Scrolldown';
 import ContactSection from '@/components/templates/ContactSection';
 
 const PortfolioMain = () => {
@@ -36,8 +35,9 @@ const PortfolioMain = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0f0f0f] transition-colors duration-300">
+      <div className="fixed top-0 left-0 right-0 h-2 bg-white/70 dark:bg-[#0f0f0f]/70 backdrop-blur-sm" style={{ zIndex: 49 }} />
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-lime-500 to-lime-300"
+        className="fixed top-0 left-0 right-0 h-2 bg-gradient-to-r from-lime-500 to-lime-300"
         style={{
           scaleX,
           transformOrigin: '0%',
@@ -66,9 +66,6 @@ const PortfolioMain = () => {
       <main className="relative w-full">
         <div ref={introRef} id="section-home" className="w-full flex justify-center min-h-screen relative">
           <IntroSection />
-          <div className='absolute bottom-5 w-full flex justify-center'>
-            <Scrolldown />
-          </div>
         </div>
 
         <div ref={helloRef} id="section-hello" className="w-full flex justify-center min-h-screen">

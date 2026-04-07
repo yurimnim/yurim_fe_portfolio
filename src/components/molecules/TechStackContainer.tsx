@@ -39,34 +39,34 @@ const TechStackContainer = () => {
     ];
 
     return (
-        <div className="flex flex-col justify-start w-full gap-4">
-            <div>
-                <h2 className="text-sm font-mono text-gray-500 dark:text-gray-500 tracking-wide mb-3">
+        <div className="flex flex-col items-center w-full gap-4">
+            <div className="w-full">
+                <h2 className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-wide mb-3 text-center">
                     {t('skills.frontend')}
                 </h2>
-                <div className="flex flex-wrap">
+                <div className="flex flex-wrap justify-center">
                     {frontendStack.map((tech, index) => (
                         <StackChip key={index} techStack={tech} />
                     ))}
                 </div>
             </div>
 
-            <div>
-                <h2 className="text-sm font-mono text-gray-500 dark:text-gray-500 tracking-wide mb-3">
+            <div className="w-full">
+                <h2 className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-wide mb-3 text-center">
                     {t('skills.backend')}
                 </h2>
-                <div className="flex flex-wrap">
+                <div className="flex flex-wrap justify-center">
                     {backendStack.map((tech, index) => (
                         <StackChip key={index} techStack={tech} />
                     ))}
                 </div>
             </div>
 
-            <div>
-                <h2 className="text-sm font-mono text-gray-500 dark:text-gray-500 tracking-wide mb-3">
+            <div className="w-full">
+                <h2 className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-wide mb-3 text-center">
                     {t('skills.etc')}
                 </h2>
-                <div className="flex flex-wrap">
+                <div className="flex flex-wrap justify-center">
                     {otherStack.map((tech, index) => (
                         <StackChip key={index} techStack={tech} />
                     ))}

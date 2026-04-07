@@ -13,13 +13,9 @@ const StackChip = ({ techStack }: TechStackChipProps) => {
       font-mono
       mr-2
       mb-2
-      transition-colors
-      duration-200
       border
       border-lime-400/60 dark:border-lime-400/40
       text-gray-700 dark:text-gray-300
-      hover:border-lime-400 dark:hover:border-lime-400
-      hover:text-gray-900 dark:hover:text-lime-400
       tracking-wide
     ">
       {techStack}

@@ -81,7 +81,6 @@ const useTypewriter = ({
       cancelledRef.current = true;
       clearTimeout(initialTimeout);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [segments, speed, delay]);
 
   return {
@@ -120,7 +119,7 @@ const TypewriterText = ({
       ))}
       {showCursor && (
         <span
-          className={`inline-block font-mono text-2xl leading-none align-baseline animate-[blink_1s_infinite] text-lime-400 ${cursorClassName}`}
+          className={`inline-block font-mono text-[1.44rem] leading-none align-baseline animate-[blink_1s_infinite] text-lime-400 ${cursorClassName}`}
           style={{ WebkitTextStroke: '2px currentColor' }}
           aria-hidden="true"
         >_</span>

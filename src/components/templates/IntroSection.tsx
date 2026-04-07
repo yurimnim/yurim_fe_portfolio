@@ -24,11 +24,11 @@ const IntroSection = () => {
       <div className="max-w-[90vw] max-h-fit m-auto px-4">
         <h1 className="
           tracking-tight
-          text-4xl
-          sm:text-5xl
-          md:text-6xl
-          lg:text-7xl
-          xl:text-8xl
+          text-[2.7rem]
+          sm:text-[3.4rem]
+          md:text-[4.5rem]
+          lg:text-[6.1rem]
+          xl:text-[7.65rem]
           font-sans
           break-keep
           whitespace-nowrap
@@ -47,7 +47,7 @@ const IntroSection = () => {
 
         {showDescription && (
           <p className="
-            text-lg sm:text-xl md:text-2xl lg:text-3xl
+            text-lg sm:text-[1.35rem] md:text-[1.7rem] lg:text-[2.3rem]
             mt-3 md:mt-4 lg:mt-6
             font-mono
             text-gray-600 dark:text-gray-400

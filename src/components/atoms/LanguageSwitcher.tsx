@@ -12,13 +12,13 @@ const LanguageSwitcher = () => {
     <button
       onClick={toggle}
       className="
-        flex items-center gap-1 px-2 py-1
+        flex items-center gap-1 px-3
         font-mono text-sm tracking-wide
         rounded-full border border-gray-300 dark:border-gray-600
         bg-transparent
-        transition-colors duration-200
+        transition-colors duration-300
         hover:border-lime-400 dark:hover:border-lime-400
-        min-h-[44px] min-w-[44px] justify-center
+        h-9 justify-center
       "
       aria-label="Toggle language"
     >

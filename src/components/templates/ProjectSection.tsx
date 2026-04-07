@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import ProjectContainer from '@/components/molecules/ProjectContainer';
+import SectionTitle from '@/components/atoms/SectionTitle';
 import { useLocale } from '@/hooks/useLocale';
 import project_a_1 from '@/assets/images/project_a_1.png';
 import project_a_2 from '@/assets/images/project_a_2.png';
@@ -31,7 +32,6 @@ const ProjectSection = () => {
       description: t('projects.healthcare.description'),
       imageList: [project_a_1, project_a_2],
       techStack: ['TypeScript', 'Next.js', 'MUI', 'Emotion', 'Redux'],
-      url: ['http://222.122.186.31/admin']
     },
     {
       title: t('projects.education.title'),
@@ -39,7 +39,6 @@ const ProjectSection = () => {
       description: t('projects.education.description'),
       imageList: [project_b_1, project_b_2, project_b_3],
       techStack: ['TypeScript', 'Next.js', 'MUI', 'Emotion', 'Redux'],
-      url: ['https://healthcare.drmeta.kr']
     },
     {
       title: t('projects.kongju.title'),
@@ -47,7 +46,6 @@ const ProjectSection = () => {
       description: t('projects.kongju.description'),
       imageList: [project_c_1, project_c_2],
       techStack: ['TypeScript', 'React', 'MUI', 'Styled-Components', 'Redux', 'Phaser'],
-      url: ['http://knu.220.90.208.8.nip.io:30029/']
     },
     {
       title: t('projects.itall.title'),
@@ -57,8 +55,6 @@ const ProjectSection = () => {
       techStack: ['TypeScript', 'React', 'Tailwind CSS', 'React-Query', 'Zustand']
     }
   ], [t]);
-
-  const ProjectContainerMemo = React.memo(ProjectContainer);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -75,7 +71,7 @@ const ProjectSection = () => {
   return (
     <div className="relative w-screen h-auto flex flex-col bg-slate-50 dark:bg-[#111111] pb-16 lg:pb-28 transition-colors duration-300">
       <div className="w-full flex justify-center my-12 lg:my-20">
-        <span className="font-mono text-sm text-gray-400 dark:text-gray-500 tracking-wider">{'// projects'}</span>
+        <SectionTitle text="projects" />
       </div>
 
       <div className="w-full flex flex-col justify-center gap-12 lg:gap-16">
@@ -91,8 +87,9 @@ const ProjectSection = () => {
               margin: "-100px"
             }}
           >
-            <ProjectContainerMemo
+            <ProjectContainer
               {...project}
+              index={index}
             />
           </motion.div>
         ))}

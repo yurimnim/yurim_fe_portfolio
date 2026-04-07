@@ -1,5 +1,6 @@
 import { ContactRound, Hand, Presentation, RotateCcw, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import LanguageSwitcher from "@/components/atoms/LanguageSwitcher";
 import ThemeToggleButton from "@/components/atoms/ThemeToggleButton";
 
@@ -55,6 +56,11 @@ const HeaderMenu = ({
 
   useEffect(() => {
     const handleScroll = () => {
+      const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 50;
+      if (atBottom) {
+        setActiveSection('contact');
+        return;
+      }
       const scrollY = window.scrollY + 200;
       const sections = ['contact', 'projects', 'hello', 'home'];
       for (const id of sections) {
@@ -85,9 +91,10 @@ const HeaderMenu = ({
       </button>
 
       {/* Desktop nav - right side */}
-      <div className="hidden md:flex items-center gap-1">
+      <div className="hidden md:flex items-center gap-2">
         {menuItems.map((item) => (
-          <button
+          // biome-ignore lint/a11y/useButtonType: <explanation>
+<button
             key={item.sectionId}
             className={`
               relative flex items-center gap-1.5
@@ -95,8 +102,8 @@ const HeaderMenu = ({
               font-mono text-sm
               tracking-normal
               rounded-md
-              transition-all duration-200
-              min-h-[44px]
+              transition-colors duration-300
+              h-9
               ${activeSection === item.sectionId
                 ? 'text-gray-900 dark:text-lime-400'
                 : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
@@ -107,12 +114,16 @@ const HeaderMenu = ({
             <span className="text-lime-500 dark:text-lime-400">{item.icon}</span>
             <span>{item.title}</span>
             {activeSection === item.sectionId && (
-              <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-lime-400 rounded-full" />
+              <motion.span
+                layoutId="nav-underline"
+                className="absolute bottom-0 inset-x-2 h-[2px] bg-lime-400 rounded-full"
+                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+              />
             )}
           </button>
         ))}
 
-        <div className="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-2" />
+        <div className="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1" />
         <LanguageSwitcher />
         <ThemeToggleButton />
       </div>

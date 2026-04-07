@@ -23,10 +23,10 @@ const ThemeToggleButton = () => {
       onClick={toggleTheme}
       className="
         flex items-center justify-center
-        w-10 h-10 min-h-[44px] min-w-[44px]
+        w-9 h-9
         rounded-full border border-gray-300 dark:border-gray-600
         bg-transparent
-        transition-colors duration-200
+        transition-colors duration-300
         hover:border-lime-400 dark:hover:border-lime-400
         text-gray-700 dark:text-gray-300
       "

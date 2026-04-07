@@ -2,6 +2,7 @@ import React from 'react';
 import { AtSign, FileUser } from 'lucide-react';
 import GithubIcon from '@/components/atoms/Icons/GithubIcon';
 import LinkedInIcon from '@/components/atoms/Icons/LinkedIn';
+import SectionTitle from '@/components/atoms/SectionTitle';
 import { motion } from 'framer-motion';
 import { useLocale } from '@/hooks/useLocale';
 
@@ -64,7 +65,7 @@ const ContactSection = () => {
   return (
     <div className="relative w-screen h-auto flex flex-col bg-slate-50 dark:bg-[#111111] pb-16 lg:pb-28 transition-colors duration-300">
       <div className="w-full flex justify-center my-12 lg:my-16">
-        <span className="font-mono text-sm text-gray-400 dark:text-gray-500 tracking-wider">{'// contact'}</span>
+        <SectionTitle text="contact" />
       </div>
 
       <div className="w-full flex flex-wrap justify-center gap-6 sm:gap-10 px-4">
