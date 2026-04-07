@@ -44,7 +44,7 @@ const TechStackContainer = () => {
                 <h2 className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-wide mb-3 text-center">
                     {t('skills.frontend')}
                 </h2>
-                <div className="flex flex-wrap justify-center">
+                <div className="flex flex-wrap justify-center gap-2">
                     {frontendStack.map((tech, index) => (
                         <StackChip key={index} techStack={tech} />
                     ))}
@@ -55,7 +55,7 @@ const TechStackContainer = () => {
                 <h2 className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-wide mb-3 text-center">
                     {t('skills.backend')}
                 </h2>
-                <div className="flex flex-wrap justify-center">
+                <div className="flex flex-wrap justify-center gap-2">
                     {backendStack.map((tech, index) => (
                         <StackChip key={index} techStack={tech} />
                     ))}
@@ -66,7 +66,7 @@ const TechStackContainer = () => {
                 <h2 className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-wide mb-3 text-center">
                     {t('skills.etc')}
                 </h2>
-                <div className="flex flex-wrap justify-center">
+                <div className="flex flex-wrap justify-center gap-2">
                     {otherStack.map((tech, index) => (
                         <StackChip key={index} techStack={tech} />
                     ))}

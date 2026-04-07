@@ -68,9 +68,11 @@
   html {
     font-family: "Pretendard", sans-serif;
     scroll-behavior: smooth;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
   html.dark {
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.3);
     color-scheme: dark;
   }
 
@@ -102,6 +104,12 @@
   #root {
     flex: 1;
     min-height: 100vh;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] max-w-[1400px];
   }
 }
 

@@ -2,10 +2,11 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useLocale } from '@/hooks/useLocale';
 import SectionTitle from '@/components/atoms/SectionTitle';
+import AccentText from '@/components/atoms/AccentText';
 import TechStackContainer from '../molecules/TechStackContainer';
 
 const HelloSection = () => {
-  const { t } = useLocale();
+  const { t, language } = useLocale();
   const [containerRef, isContainerInView] = useInView({
     triggerOnce: false,
     threshold: 0.1
@@ -31,7 +32,7 @@ const HelloSection = () => {
 
         <motion.div
           ref={containerRef}
-          className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] max-w-[1400px]"
+          className="content-container"
           initial={{ opacity: 0, y: 20 }}
           animate={isContainerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
@@ -54,12 +55,24 @@ const HelloSection = () => {
                   tracking-normal
                   text-pretty
                   leading-snug
+                  whitespace-pre-wrap
                 "
                 initial={{ opacity: 0 }}
                 animate={isContentInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                {t('about.title')}
+                {language === 'en' ? (
+                  <>
+                    Hi, I'm <AccentText>Yurim Lee</AccentText>,<br />
+                    A Frontend Developer with 5 years of experience in the <AccentText>JavaScript</AccentText> and <AccentText>TypeScript</AccentText> ecosystem.
+                  </>
+                ) : (
+                  <>
+                    <AccentText>안녕하세요</AccentText>,<br />
+                    JavaScript와 TypeScript 생태계에서 <br />
+                    5년째 제품을 만들고 있는 <AccentText>이유림</AccentText>입니다.
+                  </>
+                )}
               </motion.h3>
 
               <motion.p
@@ -71,8 +84,8 @@ const HelloSection = () => {
                   leading-relaxed
                   whitespace-pre-wrap
                 "
-                initial={{ opacity: 0 }}
-                animate={isContentInView ? { opacity: 1 } : { opacity: 0 }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={isContentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
                 {t('about.description')}

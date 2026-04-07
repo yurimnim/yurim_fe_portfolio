@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 interface GradientBlurShowcaseProps {
   images: string[];
   altText?: string;
+  imageFit?: 'contain' | 'cover';
+  imagePosition?: string;
 }
 
 /**
@@ -11,7 +13,12 @@ interface GradientBlurShowcaseProps {
  * Hero image on top with progressively blurred layers beneath creating depth.
  * Static - no parallax or floating animations.
  */
-const GradientBlurShowcase = ({ images, altText = 'Project showcase' }: GradientBlurShowcaseProps) => {
+const GradientBlurShowcase = ({
+  images,
+  altText = 'Project showcase',
+  imageFit = 'cover',
+  imagePosition = 'center',
+}: GradientBlurShowcaseProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
 
@@ -32,45 +39,45 @@ const GradientBlurShowcase = ({ images, altText = 'Project showcase' }: Gradient
   // Use first image if available, otherwise use placeholder
   const mainImage = images?.[0] || '';
 
-  // Blur intensities for layered effect
-  const blurLayers = [
-    { blur: 0, scale: 1, opacity: 1, zIndex: 30 },      // Hero (sharp)
-    { blur: 12, scale: 1.02, opacity: 0.6, zIndex: 20 }, // Blur layer 1
-    { blur: 24, scale: 1.04, opacity: 0.35, zIndex: 10 }, // Blur layer 2
-    { blur: 40, scale: 1.06, opacity: 0.15, zIndex: 0 },  // Blur layer 3 (deep background)
-  ];
-
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden group"
+      className="relative h-full w-full overflow-hidden bg-gray-800"
     >
-      {/* Blur layer stack */}
-      {blurLayers.map((layer, idx) => (
-        <div
-          key={`blur-${idx}`}
-          className="absolute inset-0 overflow-hidden"
-          style={{
-            zIndex: layer.zIndex,
-          }}
-        >
-          {mainImage && (
-            <motion.img
-              src={mainImage}
-              alt={`${altText} - layer ${idx}`}
-              className="w-full h-full object-cover"
-              style={{
-                filter: `blur(${layer.blur}px)`,
-                transform: `scale(${layer.scale})`,
-                opacity: layer.opacity,
-              }}
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: layer.opacity } : { opacity: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
-            />
-          )}
-        </div>
-      ))}
+      {/* Background gradient for depth effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900" />
+
+      {/* Soft full-bleed backdrop keeps narrow media from leaving hard empty bands */}
+      {mainImage && imageFit === 'contain' && (
+        <motion.img
+          src={mainImage}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-30 blur-2xl"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 0.3 } : { opacity: 0 }}
+          transition={{ duration: 0.6 }}
+        />
+      )}
+
+      {/* Main image - centered with proportions preserved */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        {mainImage && (
+          <motion.img
+            src={mainImage}
+            alt={altText}
+            className={
+              imageFit === 'cover'
+                ? 'h-full w-full object-cover'
+                : 'h-full max-w-full object-contain'
+            }
+            style={{ objectPosition: imagePosition }}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6 }}
+          />
+        )}
+      </div>
 
 
 

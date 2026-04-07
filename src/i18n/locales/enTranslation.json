@@ -11,8 +11,8 @@
     "description": "Frontend Developer"
   },
   "about": {
-    "title": "Hi, I’m Yurim Lee, \n a Front-end Developer with five years of experience in the JavaScript and TypeScript ecosystem.",
-    "description": "My focus is on the tangible aspects of user experience—optimizing load speeds, ensuring fluid interactions, and maintaining system stability. Over the past year, I’ve specialized in AI product interfaces, tackling challenges like streaming rendering, real-time state management, and progressive parsing to make complex AI outputs intuitive and readable. I aim to continue building interfaces that bridge the gap between AI capabilities and human users."
+    "title": "Hi, I’m Yurim Lee,\nA Frontend Developer with \n5 years of experience\nin the JavaScript and TypeScript ecosystem.",
+    "description": "I focus on the tangible aspects of user experience—optimizing load speeds, ensuring fluid interactions,and maintaining system stability.\n\nOver the past year, I’ve specialized in AI product interfaces,\ntackling challenges like streaming rendering,\nreal-time state management, and progressive parsing\nto make complex AI outputs intuitive and readable.\n\nI aim to continue building interfaces that bridge\nthe gap between AI capabilities and human users."
   },
   "skills": {
     "title": "Tech Stack",
@@ -35,31 +35,31 @@
     "cheiron": {
       "title": "Cheiron",
       "subtitle": "AI-powered research discovery platform for pharmaceutical companies",
-      "description": "I've been working on the front-end development of Cheiron, a RAG-based AI platform used throughout the drug discovery process. Since joining to help structure the initial codebase, I have been solving practical technical challenges to ensure product stability. My work focuses on enhancing the reliability of live AI responses; I have developed and maintained a custom progressive parser that eliminates UI issues like table flickering and scroll loss. To handle large datasets efficiently, I implement sidebar virtualization and manage a modernized streaming architecture using AbortController for robust request handling. I also consistently improve maintainability by refactoring complex, 2,000-line components into modular hooks to reduce code coupling.",
+      "description": "I've been working on the front-end development of Cheiron, a RAG-based AI platform used throughout the drug discovery process.\n\nSince joining to help structure the initial codebase, I have been solving practical technical challenges to ensure product stability. My work focuses on enhancing the reliability of live AI responses by developing a custom progressive parser that eliminates UI issues like table flickering and scroll loss.\n\nTo handle large datasets efficiently, I implement sidebar virtualization and manage a modernized streaming architecture using AbortController for robust request handling. I also consistently improve maintainability by refactoring complex, 2,000-line components into modular hooks to reduce code coupling.",
       "caseStusy": "Cheiron — case study coming soon"
     },
     "healthcare": {
       "title": "Korea Smart Healthcare Association — CRO Admin",
       "subtitle": "Admin dashboard for a metaverse medical training platform",
-      "description": "Developed the frontend for an admin dashboard supporting VR-based metaverse medical training. Built dashboards visualizing access trends, learner progress, course evaluations, and preference statistics. Customized data visualizations using Recharts for an intuitive, polished UI with flexible filtering. Continued iterating on features based on post-launch user feedback.",
+      "description": "Developed the frontend for an admin dashboard\nsupporting VR-based metaverse medical training.\n\nBuilt dashboards visualizing access trends,\nlearner progress, course evaluations, and preference statistics.\nCustomized data visualizations using Recharts\nfor an intuitive, polished UI with flexible filtering.\n\nContinued iterating on features based on\npost-launch user feedback.",
       "url": []
     },
     "education": {
       "title": "Smart Healthcare Education Portal",
       "subtitle": "Course creation and management platform for metaverse medical training",
-      "description": "Built an education management platform for creating and managing VR metaverse courses. Implemented the main landing page, course creation, student enrollment, file upload/management, and course info views. Introduced code splitting with React Suspense and skeleton screens to resolve upload delays and UI jank, significantly improving the user experience. Received positive client feedback after launch.",
+      "description": "Built an education management platform for creating\nand managing VR metaverse courses.\n\nImplemented the main landing page, course creation,\nstudent enrollment, file upload/management,\nand course info views.\n\nIntroduced code splitting with React Suspense\nand skeleton screens to resolve upload delays and UI jank,\nsignificantly improving the user experience.\n\nReceived positive client feedback after launch.",
       "url": []
     },
     "kongju": {
       "title": "Kongju National University — Arts College Metaverse",
       "subtitle": "Remote web-metaverse lecture and class management service",
-      "description": "Developed a remote web-metaverse lecture platform for Kongju National University's College of Arts. Implemented login, real-time chat, in-class mini-games, and course material management. Connected real-time server communication for live chat and interactive mini-games. Optimized chat rendering with React.memo and useCallback to eliminate unnecessary re-renders and flickering. Collaborated closely with backend developers to implement a ladder game with random assignment and live results.",
+      "description": "Developed a remote web-metaverse lecture platform\nfor Kongju National University's College of Arts.\n\nImplemented login, real-time chat, in-class mini-games,\nand course material management.\nConnected real-time server communication\nfor live chat and interactive mini-games.\n\nOptimized chat rendering with React.memo and useCallback\nto eliminate unnecessary re-renders and flickering.\nCollaborated closely with backend developers\nto implement a ladder game with random assignment\nand live results.",
       "url": []
     },
     "itall": {
       "title": "Itall Sparta Admin",
       "subtitle": "Admin dashboard for 100+ managed study halls nationwide",
-      "description": "Contributed to an admin platform for managed study halls. Built key features including announcements, CS tools, and student notification systems. Developed a real-time SOS alert system via WebSocket so app notifications reach the admin dashboard instantly. Participated in image list loading optimizations and helped introduce a monorepo structure with atomic design patterns to improve code reusability and maintainability.",
+      "description": "Contributed to an admin platform for managed study halls.\nBuilt key features including announcements, CS tools,\nand student notification systems.\n\nDeveloped a real-time SOS alert system via WebSocket\nso app notifications reach the admin dashboard instantly.\nParticipated in image list loading optimizations\nand helped introduce a monorepo structure\nwith atomic design patterns to improve code\nreusability and maintainability.",
       "url": []
     }
   }

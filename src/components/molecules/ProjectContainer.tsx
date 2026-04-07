@@ -6,7 +6,7 @@ import { Drill } from 'lucide-react';
 
 const ProjectPlaceholder = ({ label }: { label: string }) => (
   <div className="
-    relative w-full h-[300px] sm:h-[400px] lg:h-[500px]
+    relative h-full w-full
     overflow-hidden
     bg-gray-100 dark:bg-gray-800
   ">
@@ -35,6 +35,8 @@ interface ProjectContainerProps extends ProjectContents {
 
 const ProjectContainer = ({
   imageList,
+  imageFit,
+  imagePosition,
   placeholderLabel,
   title,
   subtitle,
@@ -50,8 +52,7 @@ const ProjectContainer = ({
 
   return (
     <div className="
-      w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%]
-      max-w-[1400px] mx-auto
+      content-container mx-auto
       bg-white dark:bg-[#1a1a1a]
       border border-gray-100 dark:border-gray-800
       rounded-xl
@@ -60,14 +61,19 @@ const ProjectContainer = ({
     ">
       <div className="flex flex-col lg:flex-row">
         {/* Image / Showcase - extends to edges */}
-        <div 
-          className="w-full lg:w-[45%] h-[300px] sm:h-[400px] lg:h-[500px]"
-          style={{ order: isImageOnLeft ? 1 : 2 }}
+        <div
+          className="w-full lg:w-[45%] h-[300px] sm:h-[400px] lg:h-auto lg:min-h-[500px] border border-gray-200 dark:border-gray-700"
+          style={{
+            order: isImageOnLeft ? 1 : 2,
+            boxShadow: 'var(--shadow-light)'
+          }}
         >
           {imageList && imageList.length > 0 ? (
             <GradientBlurShowcase
               images={imageList}
               altText="Project showcase"
+              imageFit={imageFit}
+              imagePosition={imagePosition}
             />
           ) : (
             <ProjectPlaceholder label={placeholderLabel || ''} />
@@ -75,7 +81,7 @@ const ProjectContainer = ({
         </div>
 
         {/* Content */}
-        <div 
+        <div
           className="w-full lg:w-[55%] space-y-6 p-4 sm:p-6 md:p-8 lg:p-10"
           style={{ order: isImageOnLeft ? 2 : 1 }}
         >
@@ -102,7 +108,7 @@ const ProjectContainer = ({
                     {t('contents.technology')}
                   </span>
                 </div>
-                <div className="flex flex-wrap gap-0">
+                <div className="flex flex-wrap gap-2">
                   {techStack.map((tech, index) => (
                     <StackChip key={`tech-${index}`} techStack={tech} />
                   ))}

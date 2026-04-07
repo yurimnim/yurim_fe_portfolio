@@ -2,15 +2,13 @@ import React, { useMemo } from 'react';
 import ProjectContainer from '@/components/molecules/ProjectContainer';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import { useLocale } from '@/hooks/useLocale';
-import project_a_1 from '@/assets/images/project_a_1.png';
-import project_a_2 from '@/assets/images/project_a_2.png';
-import project_b_1 from '@/assets/images/project_b_1.png';
-import project_b_2 from '@/assets/images/project_b_2.png';
-import project_b_3 from '@/assets/images/project_b_3.png';
-import project_c_1 from '@/assets/images/project_c_1.png';
-import project_c_2 from '@/assets/images/project_c_2.png';
-import project_d_1 from '@/assets/images/project_d_1.png';
-import project_d_2 from '@/assets/images/project_d_2.png';
+import cheiron_gif from '@/assets/images/cheiron.gif';
+import cro_1 from '@/assets/images/CRO-1.png';
+import cro_2 from '@/assets/images/CRO-2.png';
+import knu_1 from '@/assets/images/knu-1.png';
+import knu_2 from '@/assets/images/knu-2.png';
+import knu_gif from '@/assets/images/knu.gif';
+import itall_jpg from '@/assets/images/itall.jpg';
 import { ProjectContents } from '@/types';
 import { motion } from 'framer-motion';
 
@@ -22,7 +20,7 @@ const ProjectSection = () => {
       title: t('projects.cheiron.title'),
       subtitle: t('projects.cheiron.subtitle'),
       description: t('projects.cheiron.description'),
-      placeholderLabel: t('projects.cheiron.caseStusy'),
+      imageList: [cheiron_gif],
       techStack: ['React', 'TypeScript', 'Redux Toolkit', 'RTK Query', 'Framer Motion', 'Tailwind CSS', 'Vitest', '@tanstack/react-virtual'],
       url: ['https://cheiron.bio'],
     },
@@ -30,28 +28,25 @@ const ProjectSection = () => {
       title: t('projects.healthcare.title'),
       subtitle: t('projects.healthcare.subtitle'),
       description: t('projects.healthcare.description'),
-      imageList: [project_a_1, project_a_2],
-      techStack: ['TypeScript', 'Next.js', 'MUI', 'Emotion', 'Redux'],
-    },
-    {
-      title: t('projects.education.title'),
-      subtitle: t('projects.education.subtitle'),
-      description: t('projects.education.description'),
-      imageList: [project_b_1, project_b_2, project_b_3],
+      imageList: [cro_1, cro_2],
       techStack: ['TypeScript', 'Next.js', 'MUI', 'Emotion', 'Redux'],
     },
     {
       title: t('projects.kongju.title'),
       subtitle: t('projects.kongju.subtitle'),
       description: t('projects.kongju.description'),
-      imageList: [project_c_1, project_c_2],
+      imageList: [knu_gif, knu_1, knu_2],
+      imageFit: 'cover',
+      imagePosition: '100% center',
       techStack: ['TypeScript', 'React', 'MUI', 'Styled-Components', 'Redux', 'Phaser'],
     },
     {
       title: t('projects.itall.title'),
       subtitle: t('projects.itall.subtitle'),
       description: t('projects.itall.description'),
-      imageList: [project_d_1, project_d_2],
+      imageList: [itall_jpg],
+      imageFit: 'cover',
+      imagePosition: 'center',
       techStack: ['TypeScript', 'React', 'Tailwind CSS', 'React-Query', 'Zustand']
     }
   ], [t]);
