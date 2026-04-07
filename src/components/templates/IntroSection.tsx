@@ -23,6 +23,37 @@ const IntroSection = () => {
       bg-white dark:bg-[#0f0f0f]
       transition-colors duration-300
     ">
+      {/* Glowing gradient background - dark mode only */}
+      <div className="
+        absolute inset-0
+        hidden dark:block
+        pointer-events-none
+        will-change-filter
+      ">
+        {/* Main glow: lime-green radial gradient */}
+        <div
+          className="absolute w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] lg:w-[1000px] lg:h-[1000px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(132, 204, 22, 0.25) 0%, rgba(132, 204, 22, 0.1) 40%, transparent 70%)',
+            filter: 'blur(60px)',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        />
+
+        {/* Secondary glow: subtle lime accent for depth */}
+        <div
+          className="absolute w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] lg:w-[800px] lg:h-[800px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(163, 230, 53, 0.15) 0%, transparent 60%)',
+            filter: 'blur(80px)',
+            left: '50%',
+            top: '45%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        />
+      </div>
       <div className="max-w-[90vw] max-h-fit m-auto px-4">
         <h1 className="
           tracking-tight

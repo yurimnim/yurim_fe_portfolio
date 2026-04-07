@@ -9,7 +9,7 @@ const SectionTitle = ({ text, isMainTitle = false }: SectionTitleProps) => {
 
   return (
     <span className={`${baseClasses} ${sizeClasses}`}>
-      <span className="text-lime-400">{'// '}</span>
+      <span className="text-lime-400 font-extrabold tracking-wider">{'// '}</span>
       <span className="text-gray-900 dark:text-gray-100">{text}</span>
     </span>
   );

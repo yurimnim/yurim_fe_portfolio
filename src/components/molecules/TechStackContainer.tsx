@@ -39,7 +39,7 @@ const TechStackContainer = () => {
     ];
 
     return (
-        <div className="flex flex-col items-center w-full gap-4">
+        <div className="flex flex-col items-center w-full gap-4 mt-3">
             <div className="w-full">
                 <h2 className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-wide mb-3 text-center">
                     {t('skills.frontend')}
@@ -51,7 +51,7 @@ const TechStackContainer = () => {
                 </div>
             </div>
 
-            <div className="w-full">
+            <div className="w-full mt-3">
                 <h2 className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-wide mb-3 text-center">
                     {t('skills.backend')}
                 </h2>
@@ -62,7 +62,7 @@ const TechStackContainer = () => {
                 </div>
             </div>
 
-            <div className="w-full">
+            <div className="w-full mt-3">
                 <h2 className="text-sm font-mono text-gray-900 dark:text-gray-100 tracking-wide mb-3 text-center">
                     {t('skills.etc')}
                 </h2>
