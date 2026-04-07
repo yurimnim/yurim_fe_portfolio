@@ -23,33 +23,32 @@ const IntroSection = () => {
       bg-white dark:bg-[#0f0f0f]
       transition-colors duration-300
     ">
-      {/* Glowing gradient background - dark mode only */}
-      <div className="
-        absolute inset-0
-        hidden dark:block
-        pointer-events-none
-        will-change-filter
-      ">
-        {/* Main glow: lime-green radial gradient */}
+      {/* Glowing gradient background */}
+      <div className="absolute inset-0 pointer-events-none will-change-filter">
+        {/* Main glow: lime-green radial gradient - visible on both modes */}
         <div
-          className="absolute w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] lg:w-[1000px] lg:h-[1000px] rounded-full"
+          className="absolute rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(132, 204, 22, 0.25) 0%, rgba(132, 204, 22, 0.1) 40%, transparent 70%)',
-            filter: 'blur(60px)',
+            background: 'radial-gradient(circle, rgba(132, 204, 22, 0.4) 0%, rgba(132, 204, 22, 0.15) 35%, transparent 65%)',
+            filter: 'blur(50px)',
+            width: '500px',
+            height: '500px',
             left: '50%',
             top: '50%',
             transform: 'translate(-50%, -50%)',
           }}
         />
 
-        {/* Secondary glow: subtle lime accent for depth */}
+        {/* Secondary glow: wider spread for atmospheric effect */}
         <div
-          className="absolute w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] lg:w-[800px] lg:h-[800px] rounded-full"
+          className="absolute rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(163, 230, 53, 0.15) 0%, transparent 60%)',
-            filter: 'blur(80px)',
+            background: 'radial-gradient(circle, rgba(163, 230, 53, 0.25) 0%, transparent 55%)',
+            filter: 'blur(90px)',
+            width: '800px',
+            height: '800px',
             left: '50%',
-            top: '45%',
+            top: '50%',
             transform: 'translate(-50%, -50%)',
           }}
         />

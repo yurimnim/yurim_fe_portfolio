@@ -124,12 +124,7 @@ Recharts 라이브러리를 활용해 데이터 시각화를
       overflow-hidden
       bg-white dark:bg-[#0f0f0f]
       transition-colors duration-300
-    `,children:[T.jsxs("div",{className:`
-        absolute inset-0
-        hidden dark:block
-        pointer-events-none
-        will-change-filter
-      `,children:[T.jsx("div",{className:"absolute w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] lg:w-[1000px] lg:h-[1000px] rounded-full",style:{background:"radial-gradient(circle, rgba(132, 204, 22, 0.25) 0%, rgba(132, 204, 22, 0.1) 40%, transparent 70%)",filter:"blur(60px)",left:"50%",top:"50%",transform:"translate(-50%, -50%)"}}),T.jsx("div",{className:"absolute w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] lg:w-[800px] lg:h-[800px] rounded-full",style:{background:"radial-gradient(circle, rgba(163, 230, 53, 0.15) 0%, transparent 60%)",filter:"blur(80px)",left:"50%",top:"45%",transform:"translate(-50%, -50%)"}})]}),T.jsxs("div",{className:"max-w-[90vw] max-h-fit m-auto px-4",children:[T.jsx("h1",{className:`
+    `,children:[T.jsxs("div",{className:"absolute inset-0 pointer-events-none will-change-filter",children:[T.jsx("div",{className:"absolute rounded-full",style:{background:"radial-gradient(circle, rgba(132, 204, 22, 0.4) 0%, rgba(132, 204, 22, 0.15) 35%, transparent 65%)",filter:"blur(50px)",width:"500px",height:"500px",left:"50%",top:"50%",transform:"translate(-50%, -50%)"}}),T.jsx("div",{className:"absolute rounded-full",style:{background:"radial-gradient(circle, rgba(163, 230, 53, 0.25) 0%, transparent 55%)",filter:"blur(90px)",width:"800px",height:"800px",left:"50%",top:"50%",transform:"translate(-50%, -50%)"}})]}),T.jsxs("div",{className:"max-w-[90vw] max-h-fit m-auto px-4",children:[T.jsx("h1",{className:`
           tracking-tight
           text-[2.7rem]
           sm:text-[3.4rem]
@@ -314,4 +309,4 @@ Recharts 라이브러리를 활용해 데이터 시각화를
           transition-all duration-500 ease-in-out
           ${i?"bg-white/80 dark:bg-[#0f0f0f]/80 backdrop-blur-sm shadow-sm":"bg-transparent"}
         `,initial:{y:-100},animate:{y:0},transition:{duration:2.5},children:T.jsx(l2,{onHomeClick:()=>p(l),onHelloClick:()=>p(c),onProjectsClick:()=>p(f),onContactClick:()=>p(h)})}),T.jsxs("main",{className:"relative w-full",children:[T.jsx("div",{ref:l,id:"section-home",className:"w-full flex justify-center min-h-screen relative",children:T.jsx(Lk,{})}),T.jsx("div",{ref:c,id:"section-hello",className:"w-full flex justify-center min-h-screen",children:T.jsx(Vk,{})}),T.jsx("div",{ref:f,id:"section-projects",className:"w-full flex justify-center",children:T.jsx(o2,{})}),T.jsx("div",{ref:h,id:"section-contact",className:"w-full flex justify-center min-h-[100px]",children:T.jsx(d2,{})})]})]})},p2={BASE_URL:"/yurim_fe_portfolio/",DEV:!1,MODE:"production",PROD:!0,SSR:!1};function m2(){return F.useEffect(()=>{console.log("App mounted"),console.log("Environment:",p2),console.log("Base URL:","/yurim_fe_portfolio/")},[]),F.useEffect(()=>{const r=o=>{document.documentElement.lang=o};r(Ne.resolvedLanguage??Ne.language);const n=o=>{r(o)};if(Ne.on("languageChanged",n),mg())return()=>{Ne.off("languageChanged",n)};const i=()=>{Ne.changeLanguage(gg())};return window.addEventListener("languagechange",i),()=>{Ne.off("languageChanged",n),window.removeEventListener("languagechange",i)}},[]),T.jsx("div",{className:"App",children:T.jsx(h2,{})})}window.addEventListener("error",r=>{console.error("Global error:",r.error)});console.log("Main.tsx is executing");const ou=document.getElementById("root");console.log("Root element:",ou);ou?(Py.createRoot(ou).render(T.jsx(Np.StrictMode,{children:T.jsx(m2,{})})),console.log("React app mounted")):console.error("Root element not found");
-//# sourceMappingURL=main.kVNidWns.js.map
+//# sourceMappingURL=main.C2ONcnhz.js.map
