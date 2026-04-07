@@ -98,7 +98,7 @@ const IntroSection = () => {
 
         {showScroll && (
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3"
+            className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
@@ -111,7 +111,7 @@ const IntroSection = () => {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
               style={{
-                background: 'linear-gradient(to bottom, rgb(75, 85, 99), transparent)'
+                background: 'linear-gradient(to bottom, rgb(180, 190, 200), transparent)'
               }}
             />
           </motion.div>
