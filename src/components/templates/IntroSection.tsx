@@ -77,9 +77,12 @@ const IntroSection = () => {
               {t('scroll.down')}
             </span>
             <motion.div
-              className="w-0.5 h-6 bg-gray-600 dark:bg-gray-500"
-              animate={{ y: [0, 8, 0] }}
+              className="w-0.5 h-8"
+              animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+              style={{
+                background: 'linear-gradient(to bottom, rgb(75, 85, 99), transparent)'
+              }}
             />
           </motion.div>
         )}
