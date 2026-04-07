@@ -29,10 +29,10 @@ const IntroSection = () => {
         <div
           className="absolute rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(132, 204, 22, 0.4) 0%, rgba(132, 204, 22, 0.15) 35%, transparent 65%)',
-            filter: 'blur(50px)',
-            width: '500px',
-            height: '500px',
+            background: 'radial-gradient(circle, rgba(132, 204, 22, 0.2) 0%, rgba(132, 204, 22, 0.08) 40%, transparent 70%)',
+            filter: 'blur(70px)',
+            width: '700px',
+            height: '700px',
             left: '50%',
             top: '50%',
             transform: 'translate(-50%, -50%)',
@@ -43,10 +43,10 @@ const IntroSection = () => {
         <div
           className="absolute rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(163, 230, 53, 0.25) 0%, transparent 55%)',
-            filter: 'blur(90px)',
-            width: '800px',
-            height: '800px',
+            background: 'radial-gradient(circle, rgba(163, 230, 53, 0.12) 0%, transparent 60%)',
+            filter: 'blur(120px)',
+            width: '1200px',
+            height: '1200px',
             left: '50%',
             top: '50%',
             transform: 'translate(-50%, -50%)',
