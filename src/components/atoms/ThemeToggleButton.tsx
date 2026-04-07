@@ -1,20 +1,68 @@
 import { Sun, Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-const ThemeToggleButton = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof window !== 'undefined') {
-      return (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
-    }
+type ThemeMode = 'light' | 'dark';
+
+const getSystemTheme = (): ThemeMode => {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
     return 'light';
+  }
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+const ThemeToggleButton = () => {
+  const [usesSystemTheme, setUsesSystemTheme] = useState(() => {
+    if (typeof window === 'undefined') {
+      return true;
+    }
+
+    return !window.localStorage.getItem('theme');
+  });
+
+  const [theme, setTheme] = useState<ThemeMode>(() => {
+    if (typeof window === 'undefined') {
+      return 'light';
+    }
+
+    return (window.localStorage.getItem('theme') as ThemeMode | null) ?? getSystemTheme();
   });
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    document.documentElement.style.colorScheme = theme;
+
+    if (usesSystemTheme) {
+      window.localStorage.removeItem('theme');
+      return;
+    }
+
+    window.localStorage.setItem('theme', theme);
+  }, [theme, usesSystemTheme]);
+
+  useEffect(() => {
+    if (!usesSystemTheme || typeof window.matchMedia !== 'function') {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const syncSystemTheme = (event: MediaQueryListEvent | MediaQueryList) => {
+      setTheme(event.matches ? 'dark' : 'light');
+    };
+
+    syncSystemTheme(mediaQuery);
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      syncSystemTheme(event);
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, [usesSystemTheme]);
 
   const toggleTheme = () => {
+    setUsesSystemTheme(false);
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
   };
 

@@ -1,10 +1,12 @@
 import { useLocale } from '@/hooks/useLocale';
 import TypewriterText from '@/components/atoms/TypewriterText';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const IntroSection = () => {
   const { t } = useLocale();
   const [showDescription, setShowDescription] = useState(false);
+  const [showScroll, setShowScroll] = useState(false);
 
   const titleSegments = [
     { text: '\u003C', className: 'font-medium text-lime-400 tracking-wide' },
@@ -59,8 +61,27 @@ const IntroSection = () => {
               speed={50}
               delay={50}
               showCursor
+              onComplete={() => setShowScroll(true)}
             />
           </p>
+        )}
+
+        {showScroll && (
+          <motion.div
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-xs text-gray-500 dark:text-gray-500 tracking-widest uppercase font-mono">
+              {t('scroll.down')}
+            </span>
+            <motion.div
+              className="w-0.5 h-6 bg-gray-600 dark:bg-gray-500"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </motion.div>
         )}
       </div>
     </div>

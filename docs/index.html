@@ -4,12 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio:Yurim Lee</title>
-    <script type="module" crossorigin src="/yurim_fe_portfolio/assets/main.BkPNsx9Q.js"></script>
-    <link rel="stylesheet" crossorigin href="/yurim_fe_portfolio/assets/main.CQAoD_1R.css">
+    <script type="module" crossorigin src="/yurim_fe_portfolio/assets/main.DpAzxf96.js"></script>
+    <link rel="stylesheet" crossorigin href="/yurim_fe_portfolio/assets/main.CsrKk4F5.css">
   </head>
   <body>
     <script>
-      (function(){var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark');})();
+      (function () {
+        var storedTheme = localStorage.getItem('theme');
+        var prefersDark =
+          typeof window.matchMedia === 'function' &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if ((storedTheme && storedTheme === 'dark') || (!storedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
     </script>
     <div id="root"></div>
   </body>

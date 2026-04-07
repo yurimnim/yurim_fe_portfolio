@@ -1,11 +1,15 @@
 import { useTranslation } from 'react-i18next';
+import { LANGUAGE_STORAGE_KEY, normalizeLanguage } from '@/i18n/config';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
-  const isKo = i18n.language === 'ko';
+  const currentLanguage = normalizeLanguage(i18n.resolvedLanguage ?? i18n.language);
+  const isKo = currentLanguage === 'ko';
 
   const toggle = () => {
-    i18n.changeLanguage(isKo ? 'en' : 'ko');
+    const nextLanguage = isKo ? 'en' : 'ko';
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLanguage);
+    i18n.changeLanguage(nextLanguage);
   };
 
   return (
