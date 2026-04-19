@@ -72,7 +72,7 @@ const ProjectSection = () => {
       <div className="w-full flex flex-col justify-center gap-12 lg:gap-16">
         {projects.map((project, index) => (
           <motion.div
-            key={`project-${index}`}
+            key={`${project.title}-${index.toString()}`}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

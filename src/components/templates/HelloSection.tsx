@@ -40,7 +40,7 @@ const HelloSection = () => {
           {/* Text Content Container */}
           <motion.div
             ref={contentRef}
-            className="flex flex-col gap-6 lg:gap-8 text-center mx-auto lg:w-1/2"
+            className="flex flex-col gap-6 lg:gap-8 text-center mx-auto max-w-2xl w-full"
             initial={{ opacity: 0, x: 80 }}
             animate={isContentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -49,7 +49,6 @@ const HelloSection = () => {
             <div className="flex flex-col gap-4 mt-0">
               <motion.h3
                 className="
-                  text-xl sm:text-2xl md:text-2xl lg:text-3xl
                   font-sans font-normal
                   text-gray-800 dark:text-gray-200
                   tracking-normal
@@ -57,6 +56,7 @@ const HelloSection = () => {
                   leading-snug
                   whitespace-pre-wrap
                 "
+                style={{ fontSize: 'clamp(1.25rem, 4.5vw, 1.875rem)' }}
                 initial={{ opacity: 0 }}
                 animate={isContentInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
@@ -64,7 +64,8 @@ const HelloSection = () => {
                 {language === 'en' ? (
                   <>
                     Hi, I'm <AccentText>Yurim Lee</AccentText>,<br />
-                    A Frontend Developer with 5 years of experience in the <AccentText>JavaScript</AccentText> and <AccentText>TypeScript</AccentText> ecosystem.
+                    A Frontend Developer with 5 years of experience in the<br />
+                    <AccentText>JavaScript</AccentText> and <AccentText>TypeScript</AccentText> ecosystem.
                   </>
                 ) : (
                   <>
@@ -75,21 +76,29 @@ const HelloSection = () => {
                 )}
               </motion.h3>
 
-              <motion.p
-                className="
-                  text-base sm:text-lg md:text-xl lg:text-xl
-                  font-sans font-light
-                  text-gray-600 dark:text-gray-400
-                  tracking-normal
-                  leading-relaxed
-                  whitespace-pre-wrap
-                "
+              <motion.div
+                className="flex flex-col gap-3 sm:gap-4 w-full"
                 initial={{ opacity: 0, x: 50 }}
                 animate={isContentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                {t('about.description')}
-              </motion.p>
+                {t('about.description').split('\n\n').map((para, i) => (
+                  <p
+                    key={i}
+                    className="
+                      font-sans font-light
+                      text-gray-600 dark:text-gray-400
+                      tracking-normal
+                      leading-relaxed
+                      text-center
+                      whitespace-pre-wrap
+                    "
+                    style={{ fontSize: 'clamp(0.875rem, 3vw, 1.25rem)' }}
+                  >
+                    {para}
+                  </p>
+                ))}
+              </motion.div>
             </div>
 
             {/* Skills Section */}

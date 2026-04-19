@@ -12,7 +12,7 @@
   },
   "about": {
     "title": "Hi, I’m Yurim Lee,\nA Frontend Developer with \n5 years of experience\nin the JavaScript and TypeScript ecosystem.",
-    "description": "I focus on the tangible aspects of user experience—optimizing load speeds, ensuring fluid interactions,and maintaining system stability.\n\nOver the past year, I’ve specialized in AI product interfaces,\ntackling challenges like streaming rendering,\nreal-time state management, and progressive parsing\nto make complex AI outputs intuitive and readable.\n\nI aim to continue building interfaces that bridge\nthe gap between AI capabilities and human users."
+    "description": "I focus on the tangible aspects of user experience—\noptimizing load speeds, ensuring fluid interactions,\nand maintaining system stability.\n\nOver the past year, I’ve specialized in AI product interfaces,\ntackling challenges like streaming rendering,\nreal-time state management, and progressive parsing to make complex AI outputs\nintuitive and readable.\n\nI aim to continue building interfaces that bridge\nthe gap between AI capabilities and human users."
   },
   "skills": {
     "title": "Tech Stack",
