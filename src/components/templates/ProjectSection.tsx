@@ -84,7 +84,6 @@ const ProjectSection = () => {
           >
             <ProjectContainer
               {...project}
-              index={index}
             />
           </motion.div>
         ))}

@@ -29,10 +29,6 @@ const ProjectPlaceholder = ({ label }: { label: string }) => (
   </div>
 );
 
-interface ProjectContainerProps extends ProjectContents {
-  index?: number;
-}
-
 const ProjectContainer = ({
   imageList,
   imageFit,
@@ -43,12 +39,8 @@ const ProjectContainer = ({
   description,
   techStack,
   url,
-  index = 0
-}: ProjectContainerProps) => {
+}: ProjectContents) => {
   const { t } = useLocale();
-  
-  // Alternate layout: even indices = left, odd indices = right
-  const isImageOnLeft = index % 2 === 0;
 
   return (
     <div className="
@@ -63,10 +55,7 @@ const ProjectContainer = ({
         {/* Image / Showcase - extends to edges */}
         <div
           className="w-full lg:w-[45%] h-[300px] sm:h-[400px] lg:h-auto lg:min-h-[500px] border border-gray-200 dark:border-gray-700"
-          style={{
-            order: isImageOnLeft ? 1 : 2,
-            boxShadow: 'var(--shadow-light)'
-          }}
+          style={{ boxShadow: 'var(--shadow-light)' }}
         >
           {imageList && imageList.length > 0 ? (
             <GradientBlurShowcase
@@ -81,10 +70,7 @@ const ProjectContainer = ({
         </div>
 
         {/* Content */}
-        <div
-          className="w-full lg:w-[55%] space-y-6 p-4 sm:p-6 md:p-8 lg:p-10"
-          style={{ order: isImageOnLeft ? 2 : 1 }}
-        >
+        <div className="w-full lg:w-[55%] space-y-6 p-4 sm:p-6 md:p-8 lg:p-10">
           <div className="space-y-4">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900 dark:text-gray-100 leading-tight">
               {title}

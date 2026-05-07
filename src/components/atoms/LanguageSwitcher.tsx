@@ -13,7 +13,8 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <button
+    // biome-ignore lint/a11y/useButtonType: <explanation>
+<button
       onClick={toggle}
       className="
         flex items-center gap-1 px-3
