@@ -52,9 +52,7 @@ const HelloSection = () => {
                   font-sans font-normal
                   text-gray-800 dark:text-gray-200
                   tracking-normal
-                  text-pretty
                   leading-snug
-                  whitespace-pre-wrap
                 "
                 style={{ fontSize: 'clamp(1.25rem, 4.5vw, 1.875rem)' }}
                 initial={{ opacity: 0 }}
@@ -63,15 +61,17 @@ const HelloSection = () => {
               >
                 {language === 'en' ? (
                   <>
-                    Hi, I'm <AccentText>Yurim Lee</AccentText>,<br />
-                    A Frontend Developer with 5 years of experience in the<br />
-                    <AccentText>JavaScript</AccentText> and <AccentText>TypeScript</AccentText> ecosystem.
+                    <span className="block">Hi, I'm <AccentText>Yurim Lee</AccentText>,</span>
+                    <span className="block sm:hidden">A Frontend Developer</span>
+                    <span className="block sm:hidden">with 5 years of experience</span>
+                    <span className="hidden sm:block">A Frontend Developer with 5 years of experience</span>
+                    <span className="block">in the <AccentText>JavaScript</AccentText> and <AccentText>TypeScript</AccentText> ecosystem.</span>
                   </>
                 ) : (
                   <>
-                    <AccentText>안녕하세요</AccentText>,<br />
-                    JavaScript와 TypeScript 생태계에서 <br />
-                    5년째 제품을 만들고 있는 <AccentText>이유림</AccentText>입니다.
+                    <span className="block"><AccentText>안녕하세요</AccentText>,</span>
+                    <span className="block">JavaScript와 TypeScript 생태계에서</span>
+                    <span className="block">5년째 제품을 만들고 있는 <AccentText>이유림</AccentText>입니다.</span>
                   </>
                 )}
               </motion.h3>
@@ -91,7 +91,6 @@ const HelloSection = () => {
                       tracking-normal
                       leading-relaxed
                       text-center
-                      whitespace-pre-wrap
                     "
                     style={{ fontSize: 'clamp(0.875rem, 3vw, 1.25rem)' }}
                   >
