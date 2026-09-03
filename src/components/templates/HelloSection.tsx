@@ -71,7 +71,9 @@ const HelloSection = () => {
                   <>
                     <span className="block"><AccentText>안녕하세요</AccentText>,</span>
                     <span className="block">JavaScript와 TypeScript 생태계에서</span>
-                    <span className="block">5년째 제품을 만들고 있는 <AccentText>이유림</AccentText>입니다.</span>
+                    <span className="block sm:hidden">5년째 제품을 만들고 있는</span>
+                    <span className="block sm:hidden"><AccentText>이유림</AccentText>입니다.</span>
+                    <span className="hidden sm:block">5년째 제품을 만들고 있는 <AccentText>이유림</AccentText>입니다.</span>
                   </>
                 )}
               </motion.h3>
@@ -91,6 +93,7 @@ const HelloSection = () => {
                       tracking-normal
                       leading-relaxed
                       text-center
+                      break-keep
                     "
                     style={{ fontSize: 'clamp(0.875rem, 3vw, 1.25rem)' }}
                   >

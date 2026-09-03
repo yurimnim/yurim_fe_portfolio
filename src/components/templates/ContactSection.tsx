@@ -3,7 +3,6 @@ import { AtSign, FileUser } from 'lucide-react';
 import GithubIcon from '@/components/atoms/Icons/GithubIcon';
 import LinkedInIcon from '@/components/atoms/Icons/LinkedIn';
 import SectionTitle from '@/components/atoms/SectionTitle';
-import { motion } from 'framer-motion';
 import { useLocale } from '@/hooks/useLocale';
 
 interface ContactItemProps {
@@ -15,25 +14,27 @@ interface ContactItemProps {
 }
 
 const ContactItem = ({ Icon, label, href, onClick }: ContactItemProps) => (
-  <motion.a
+  <a
     href={href}
     onClick={onClick}
     className="
-      flex flex-col items-center gap-3 p-6
+      flex flex-col items-center gap-1.5 sm:gap-2 md:gap-3 p-1.5 sm:p-4 md:p-6
       text-gray-600 dark:text-gray-400
       hover:text-lime-500 dark:hover:text-lime-400
       cursor-pointer
       transition-colors duration-200
-      min-w-[100px]
+      min-w-0
     "
     target={href ? "_blank" : undefined}
     rel={href ? "noopener noreferrer" : undefined}
-    whileHover={{ y: -4 }}
-    transition={{ type: "spring", stiffness: 400, damping: 17 }}
   >
-    <Icon size={32} strokeWidth={1} />
-    <p className="font-mono text-sm tracking-wide">{label}</p>
-  </motion.a>
+    <Icon
+      size={32}
+      strokeWidth={1}
+      className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8"
+    />
+    <p className="font-mono text-[10px] sm:text-sm tracking-wide whitespace-nowrap">{label}</p>
+  </a>
 );
 
 const ContactSection = () => {
@@ -68,7 +69,7 @@ const ContactSection = () => {
         <SectionTitle text="contact" />
       </div>
 
-      <div className="w-full flex flex-wrap justify-center gap-6 sm:gap-10 px-4">
+      <div className="w-full flex flex-nowrap justify-center gap-0.5 sm:gap-6 md:gap-10 px-2 sm:px-4">
         {contactItems.map((item, index) => (
           <ContactItem key={index} {...item} />
         ))}
